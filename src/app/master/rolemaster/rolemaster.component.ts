@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { RoleMaster } from '../model/rolemaster';
-//ddd
+
 @Component({
   selector: 'app-rolemaster',
   templateUrl: './rolemaster.component.html',
@@ -24,6 +24,7 @@ export class RolemasterComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   selectedRowIndex: any;
+  az: any;
   constructor(public router: Router) { }
 
   ngOnInit(): void {

@@ -62,6 +62,7 @@ export class LeadComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   selectedRowIndex: any;
+  intro:any;
  
 
   constructor(public router: Router) {

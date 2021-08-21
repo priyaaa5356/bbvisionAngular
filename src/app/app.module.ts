@@ -51,7 +51,10 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { LeavedialogComponent } from './leavedialog/leavedialog.component';
 import { MessageComponent } from './common/message/message.component';
-//rrr
+
+import {CKEditorModule} from 'ng2-ckeditor';
+import { CommonModule } from '@angular/common';
+
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
   interactionPlugin
@@ -110,7 +113,9 @@ FullCalendarModule.registerPlugins([
     MatCheckboxModule,
     NgMultiSelectDropDownModule.forRoot(),
     MatSlideToggleModule,
-    MatExpansionModule
+    MatExpansionModule,
+    CKEditorModule,
+    CommonModule
   ],
   exports: [
     BrowserModule,
@@ -148,7 +153,9 @@ FullCalendarModule.registerPlugins([
     MatCheckboxModule,
     NgMultiSelectDropDownModule,
     MatSlideToggleModule,
-    MatExpansionModule
+    MatExpansionModule,
+    CKEditorModule,
+    CommonModule
   ],
   providers: [CommonService],
   bootstrap: [AppComponent],

@@ -2,7 +2,7 @@
     <div style="text-align: center;">
         <h4 style="font-size: x-large;
     font-weight: 500;
-    margin-top: revert;">Lead List</h4>
+    margin-top: revert;">Cost List</h4>
     </div>
     <div fxLayout="row">
         <div fxFlex="90">
@@ -11,19 +11,18 @@
                 <input matInput (keyup)="applyFilter($event)" placeholder="Search" cdkFocusInitial #search id="search">
             </mat-form-field>
         </div>
-<!--       
-        <div fxFlex="20">
-            <button mat-raised-button color="accent" (click)="add()">Create Client master</button>
+        <!-- <div fxFlex="10">
+            <button mat-mini-fab style="background-color: #39a9a9;" (click)="add()">
+                <mat-icon>add</mat-icon>
+            </button>
         </div> -->
-
-
     </div>
     <div class="example-container mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
             <ng-container matColumnDef="call">
                 <th mat-sort-header mat-header-cell *matHeaderCellDef style="font-weight: bold;font-size: medium;
-                    color: #383131;"> Call Type </th>
+                    color: #383131;"> Call  </th>
                 <td mat-cell *matCellDef="let element"> {{element.call}} </td>
             </ng-container>
             <ng-container matColumnDef="date">
@@ -33,7 +32,7 @@
             </ng-container>
             <ng-container matColumnDef="companyname">
                 <th mat-sort-header mat-header-cell *matHeaderCellDef style="font-weight: bold;font-size: medium;
-                    color: #383131;"> Client </th>
+                    color: #383131;"> Company Name </th>
                 <td mat-cell *matCellDef="let element"> {{element.companyname}} </td>
             </ng-container>
             <ng-container matColumnDef="location">
@@ -46,10 +45,10 @@
                     color: #383131;"> Contact Number </th>
                 <td mat-cell *matCellDef="let element"> {{element.contactnumber}} </td>
             </ng-container>
-            <ng-container matColumnDef="department">
+            <ng-container matColumnDef="followupdate">
                 <th mat-sort-header mat-header-cell *matHeaderCellDef style="font-weight: bold;font-size: medium;
                     color: #383131;"> Follow Up Date </th>
-                <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.followupdate}} </td>
             </ng-container>
             <ng-container matColumnDef="employee">
                 <th mat-sort-header mat-header-cell *matHeaderCellDef style="font-weight: bold;font-size: medium;
@@ -62,28 +61,23 @@
                     color: #383131;"> Status </th>
                 <td mat-cell *matCellDef="let element">
                     <p [style.color]="element.color">{{element.status}}</p>
-
                 </td>
             </ng-container>
 
             <ng-container matColumnDef="tools">
                 <th mat-header-cell *matHeaderCellDef style="font-weight: bold;font-size: medium;
                     color: #383131;"> Action </th>
-                <td mat-cell *matCellDef="let element"><button (click)="navigate(element)" mat-mini-fab
+                <td mat-cell *matCellDef="let element"> <button (click)="selectedrow(element)" mat-mini-fab
                         style="background-color: #39a9a9;">
                         <mat-icon>remove_red_eye</mat-icon>
-                    </button>
-
+                    </button></td>
             </ng-container>
-           
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            
         </table>
-    
-     
-    
         <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
     </div>
+
+ 
 </div>

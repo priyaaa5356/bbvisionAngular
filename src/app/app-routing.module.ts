@@ -190,7 +190,10 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
 { path: 'enquiry', loadChildren: () => import('../app/crm/enquiry/enquiry.module').then(m => m.EnquiryModule) },
 { path: 'enquiryadd/:clienttype/:calltype/:date/:client/:address/:city/:clientname/:designation/:contactnumber/:mailid/:service/:feedback/:followupdate/:accountmanagerdepartment/:accountmanager/:assigntodepartment/:assigntoemployee/:status/:save', loadChildren: () => import('../app/crm/enquiryadd/enquiryadd.module').then(m => m.EnquiryaddModule) },
 { path: 'lead', loadChildren: () => import('./crm/lead/lead.module').then(m => m.LeadModule) },
-{ path: 'leadadd', loadChildren: () => import('./crm/leadadd/leadadd.module').then(m => m.LeadaddModule) }
+{ path: 'leadadd', loadChildren: () => import('./crm/leadadd/leadadd.module').then(m => m.LeadaddModule) },
+{ path: 'costsheet', loadChildren: () => import('./crm/costsheet/costsheet.module').then(m => m.CostsheetModule) },
+{ path: 'costsheetadd', loadChildren: () => import('./crm/costsheetadd/costsheetadd.module').then(m => m.CostsheetaddModule) },
+{ path: 'costsheetreverse', loadChildren: () => import('./crm/costsheetreverse/costsheetreverse.module').then(m => m.CostsheetreverseModule) }
 ];
 
 

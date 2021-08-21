@@ -5,7 +5,7 @@ import { CommonService } from './common/common.service';
 import { EventdialogComponent } from './eventdialog/eventdialog.component';
 import { Children, NavItem } from './common/navitem';
 import { LoginPojo } from './master/model/login';
-
+//import
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -220,6 +220,20 @@ export class AppComponent implements OnInit {
         disabled: false,
         iconName: 'input',
         route: 'lead',
+      },
+   {
+        menuname: 'costsheet',
+        displayName: 'Cost Sheet',
+        disabled: false,
+        iconName: 'input',
+        route: 'costsheet',
+      },
+      {
+        menuname: 'costsheetreverse',
+        displayName: 'Cost Sheet Reverse',
+        disabled: false,
+        iconName: 'input',
+        route: 'costsheetreverse',
       }]
     }]
   login: LoginPojo = new LoginPojo();
