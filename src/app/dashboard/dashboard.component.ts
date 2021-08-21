@@ -376,7 +376,7 @@ export class DashboardComponent implements OnInit {
     this.dataSourceamc = this.amc;
   }
   async getleavetype() {
-    //azsdfasdfasdfasdf
+    //azasdfasdfasdfasdf
 
 
     var sss = sessionStorage.getItem('logindet');
