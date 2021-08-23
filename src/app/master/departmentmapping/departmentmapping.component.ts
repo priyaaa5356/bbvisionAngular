@@ -54,12 +54,14 @@ export class DepartmentmappingComponent implements OnInit {
   }
 
   add() {
+    debugger;
     const des: DepartmentMapping = new DepartmentMapping();
     this.departmentmappingedit[0] = des;
     this.router.navigateByUrl('/departmentmappingadd', { state: this.departmentmappingedit });
   }
 
   selectedrow(row: any) {
+    debugger;
     this.departmentmappingedit = this.departmentmappingview.filter((elem: any) => elem.id === row.id)
     this.departmentmappingedit[0].save = "update"
     this.router.navigateByUrl('/departmentmappingadd', { state: this.departmentmappingedit });

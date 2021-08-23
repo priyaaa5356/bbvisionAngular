@@ -12,7 +12,7 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
 { path: 'menu', component: MenuListItemComponent },
 { path: 'departmentmapping', loadChildren: () => import('../app/master/departmentmapping/departmentmapping.module').then(m => m.DepartmentmappingModule) },
 {
-  path: 'departmentmappingadd/:company/:dept/:head/:status/:save',
+  path: 'departmentmappingadd',
   loadChildren: () => import('../app/master/departmentmappingadd/departmentmappingadd.module').then(m => m.DepartmentmappingaddModule)
 },
 {
@@ -75,7 +75,7 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
 }
   ,
 {
-  path: 'servicemasteradd/:name/:status/:save',
+  path: 'servicemasteradd',
   loadChildren: () => import('../app/master/servicemasteradd/servicemasteradd.module').then(m => m.ServicemasteraddModule)
 }
   ,
@@ -109,7 +109,7 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
   loadChildren: () => import('../app/master/questionmaster/questionmaster.module').then(m => m.QuestionmasterModule)
 },
 {
-  path: 'questionmasteradd/:name/:status/:save',
+  path: 'questionmasteradd',
   loadChildren: () => import('../app/master/questionmasteradd/questionmasteradd.module').then(m => m.QuestionmasteraddModule)
 },
 {
