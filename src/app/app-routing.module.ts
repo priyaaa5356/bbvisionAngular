@@ -80,7 +80,7 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
 }
   ,
 {
-  path: 'interviewroundsmasteradd/:name/:status/:save',
+  path: 'interviewroundsmasteradd',
   loadChildren: () => import('../app/master/interviewroundsmasteradd/interviewroundsmasteradd.module').then(m => m.InterviewroundsmasteraddModule)
 }
   ,
@@ -89,11 +89,11 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
   loadChildren: () => import('../app/master/interviewmappingmasteradd/interviewmappingmasteradd.module').then(m => m.InterviewmappingmasteraddModule)
 }
   ,
-{
-  path: 'rolemasteradd/:name/:name1/:status/:save',
-  loadChildren: () => import('../app/master/rolemasteradd/rolemasteradd.module').then(m => m.RolemasteraddModule)
-}
-  ,
+  {
+    path: 'rolemasteradd/:rname/:rcode/:status/:save',
+    loadChildren: () => import('../app/master/rolemasteradd/rolemasteradd.module').then(m => m.RolemasteraddModule)
+  }
+    ,
 {
   path: 'prefixmasteradd/:name/:name1/:status/:save',
   loadChildren: () => import('../app/master/prefixmasteradd/prefixmasteradd.module').then(m => m.PrefixmasteraddModule)

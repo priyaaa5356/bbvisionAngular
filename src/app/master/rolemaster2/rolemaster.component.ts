@@ -17,7 +17,7 @@ export class RolemasterComponent implements OnInit {
   dataSource!: MatTableDataSource<RoleMaster>;
   role: RoleMaster[] = [
     {
-      rname: 'Interviewer', rcode: 'ROLE-001	', status: true,  color: 'rgb(137 185 236)', width: '40% ', button: 'View rolemapping', check: [{
+      rname: 'Interviewer', rcode: 'ROLE-001	', status: true, color: 'rgb(137 185 236)', width: '32%', button: 'RoleMapping', check: [{
         headingname: "Recruitment", check: [
           { name: 'ApplicationForm', view: false, edit: true, All: false },
           { name: 'CTC Approval', view: false, edit: true, All: false }]
@@ -29,23 +29,6 @@ export class RolemasterComponent implements OnInit {
       }
       ]
     },
-
-
-    {
-      rname: 'Admin', rcode: 'ROLE-002	', status: false,  color: 'rgb(202 157 193)', width: '40%', button: 'RoleMapping', check: [{
-        headingname: "Payroll", check: [
-          { name: 'Attendance', view: true, edit: true, All: true },
-          { name: 'Holidays', view: true, edit: true, All: true }]
-      },
-      {
-        headingname: "Staff", check: [
-          { name: 'HOD', view: true, edit: true, All: true },
-          { name: 'Birthday List', view: true, edit: true, All: true }]
-      }
-      ]
-    },
-
-
   ];
 
 
@@ -58,12 +41,9 @@ export class RolemasterComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   selectedRowIndex: any;
-  constructor(public router: Router) { 
-    debugger;
-  }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
-    console.log(JSON.stringify(this.role));
     setTimeout(() => {
       this.searchElement.nativeElement.focus();
     }, 0);
