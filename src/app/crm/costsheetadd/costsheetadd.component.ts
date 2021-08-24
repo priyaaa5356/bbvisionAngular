@@ -12,14 +12,14 @@ import { Costsheet, Costsheetadd, Totaladd } from '../crmmodel/costsheet';
   styleUrls: ['./costsheetadd.component.css']
 })
 export class CostsheetaddComponent implements OnInit {
-
+  costadded!: MatTableDataSource<Costsheetadd>;
   @ViewChild('name') nameElement!: ElementRef;
 
   formgroup!: FormGroup;
   phaseForm!: FormGroup;
 
   costsheet: Costsheet = new Costsheet();
-  addedmul!:string;
+ 
 
   name!: string;
   namesecondtable!: string;
@@ -54,8 +54,9 @@ export class CostsheetaddComponent implements OnInit {
   checkboxes!: boolean[];
 
   id: number = 100;
-
+  selectedValue! : string;
   selection = new SelectionModel<Costsheetadd>(true, []);
+  // displayedColumns: string[] = ['Code','Name','Price','Action']
   displayedColumns: string[] = ['check', 'phase', 'specification', 'manhours', 'amount', 'total']
   displayedColumns1: string[] = ['totaladd']
 
@@ -64,9 +65,10 @@ export class CostsheetaddComponent implements OnInit {
   data = Object.assign(this.costsheetadd);
   dataSource = new MatTableDataSource<Costsheetadd>(this.data);
   total: Totaladd[] = [
-    { totaladd: '' }]
-
-
+    { phaseType: '' }]
+    data1 = Object.assign(this.total)
+    dataSourceadd = new MatTableDataSource<Totaladd>(this.data);
+    rows!: FormArray;
 
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private router: Router) {
     console.log(this.router.getCurrentNavigation()?.extras.state);
@@ -79,6 +81,7 @@ export class CostsheetaddComponent implements OnInit {
     this.name;
     this.namesecondtable;
     this.namethirddtable;
+    
 
     debugger;
     if (this.save === "add") {
@@ -103,38 +106,46 @@ export class CostsheetaddComponent implements OnInit {
   
   
     })
-     this.addedmul;
+  
     this.phaseForm = this.fb.group({
       // userName: [''],
       phaseExecutions: this.fb.group({
+
         PRE: this.fb.array([this.addPhase()])
+        
       })
+    
     });
-
-
+    this.selectedValue = "";
+     debugger;
+  
     this.checkboxes = new Array(this.costsheetadd.length);
     this.checkboxes.fill(false);
 
   }
   addPhase() {
-    // const control = <FormArray>(<FormGroup>this.phaseForm.get('phaseExecutions')).get('PRE');
-    // console.log(control);
+  
     return this.fb.group({
       phaseType: [''],
       
+     
     });
+    
    
 
   }
   add(): void {
     debugger;
     this.costsheetadd.push({ check: '', phase: '', specification: '', manhours: '', amount: '', total: '' });
-    this.dataSource.data = this.costsheetadd;
+     this.dataSource.data = this.costsheetadd;
   }
-  phaseadd()  {
-  
+  phaseadd()  { 
+    // debugger;
+    // for (let i = this.data.length; i < this.phaseArray; i++)
    this.phaseArray.push(this.addPhase());
 
+
+    // console.log(this.phaseArray);
   }
   saveform() {
 
@@ -190,12 +201,20 @@ export class CostsheetaddComponent implements OnInit {
   }
   get phaseArray() {
     const control = <FormArray>(<FormGroup>this.phaseForm.get('phaseExecutions')).get('PRE');
+    // this.dataSourceadd.data.forEach(row => this.selection.select(row));
     return control;
+    
   }
-  // onChange(val: string, index: number) {
-  //   if (val === 'EMS') {
+  // onChange(val:any, index: number) {
+  //   if (val === '0') {
   //     (<FormGroup>this.phaseArray.at(index))
   //       .addControl('phaseType', this.fb.control([]));
-  //   }}
-
+  //   } else {
+  //     (<FormGroup>this.phaseArray.at(index))
+  //       .removeControl('phaseType');
+  //   }
+  // }
+//   hasPhaseValue1At(index: number) {
+//     return (<FormGroup>this.phaseArray.at(index)).get('phaseType') ? true : false;
+// }
 }

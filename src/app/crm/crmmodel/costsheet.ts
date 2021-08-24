@@ -29,11 +29,11 @@ export class Costsheetadd {
   manhours: string = "";
   amount:string="";
   total:string=""
-  
+
 
 
 
 }
 export class Totaladd {
-  totaladd:string="";
+  phaseType:string="";
 }
