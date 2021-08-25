@@ -54,8 +54,6 @@ export class CallsmasterComponent implements OnInit {
   }
 
   selectedrow(row: any) {
-    this.router.navigate(['/callsmasteradd', row.name, row.status, "update"]);
-
     this.callsedit = this.callsview.filter((elem: any) => elem.id === row.id)
     this.callsedit[0].save = "update"
     this.router.navigateByUrl('/callsmasteradd', { state: this.callsedit });

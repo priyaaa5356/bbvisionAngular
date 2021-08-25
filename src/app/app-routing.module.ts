@@ -65,12 +65,12 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
 }
   ,
 {
-  path: 'resourcemasteradd/:name/:status/:save',
+  path: 'resourcemasteradd',
   loadChildren: () => import('../app/master/resourcemasteradd/resourcemasteradd.module').then(m => m.ResourcemasteraddModule)
 }
   ,
 {
-  path: 'feedbackmasteradd/:name/:status/:save',
+  path: 'feedbackmasteradd',
   loadChildren: () => import('../app/master/feedbackmasteradd/feedbackmasteradd.module').then(m => m.FeedbackmasteraddModule)
 }
   ,
@@ -89,11 +89,11 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
   loadChildren: () => import('../app/master/interviewmappingmasteradd/interviewmappingmasteradd.module').then(m => m.InterviewmappingmasteraddModule)
 }
   ,
-  {
-    path: 'rolemasteradd/:rname/:rcode/:status/:save',
-    loadChildren: () => import('../app/master/rolemasteradd/rolemasteradd.module').then(m => m.RolemasteraddModule)
-  }
-    ,
+{
+  path: 'rolemasteradd/:rname/:rcode/:status/:save',
+  loadChildren: () => import('../app/master/rolemasteradd/rolemasteradd.module').then(m => m.RolemasteraddModule)
+}
+  ,
 {
   path: 'prefixmasteradd/:name/:name1/:status/:save',
   loadChildren: () => import('../app/master/prefixmasteradd/prefixmasteradd.module').then(m => m.PrefixmasteraddModule)

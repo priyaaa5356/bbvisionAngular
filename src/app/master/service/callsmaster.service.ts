@@ -24,7 +24,7 @@ export class CallsmsaterService {
   }
 
   update(update: any): Promise<any> {
-    const url = environment.API_URL + 'calls_master/coalls_update.php';
+    const url = environment.API_URL + 'calls_master/calls_update.php';
     return this.http.post(url, update, this.httpOptions).toPromise();
   }
 }
