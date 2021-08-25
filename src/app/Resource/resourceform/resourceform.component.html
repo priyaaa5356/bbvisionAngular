@@ -1,0 +1,204 @@
+<!-- <div fxLayout="column">
+    <div style="-webkit-align-items: center;" fxLayout="column">
+        <img src="assets/images/BB LOGO.png" style="width:250px;height:150px;border-style: none;"
+            onFocus="if(document.getElementById('_arrowdown').disabled == true){return false;}" disabled='true'
+            id="_arrowdown" tabindex='0'>
+    </div>
+
+    <div style="text-align: center;">
+        <h4 style="font-size: x-large;
+    font-weight: 500;
+    margin-top: revert;">Resource Form</h4>
+    </div>
+
+    <form [formGroup]="formgroup" class="example-form" fxLayout="column" fxFlex="50"
+        style="-webkit-align-items: center;">
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">Source</mat-label>
+            <mat-select #name formControlName="source">
+                <mat-option *ngFor="let clienttypes of clientypeselect" [value]="clienttypes.clienttypecode">
+                    {{clienttypes.clienttype}}
+                </mat-option>
+
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">Referal name </mat-label>
+            <mat-select #name formControlName="referalname">
+                <mat-option *ngFor="let calltypes of calltypeselect" [value]="calltypes.calltypecode">
+                    {{calltypes.calltype}}
+                </mat-option>
+
+            </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field>
+            <mat-label style="font-weight: bold;color: #464545;">Date</mat-label>
+            <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Date" readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">Post Applied for</mat-label>
+            <mat-select #name formControlName="postappliedfor">
+                <mat-option *ngFor="let clienttypes of clientypeselect" [value]="clienttypes.clienttypecode">
+                    {{clienttypes.clienttype}}
+                </mat-option>
+
+            </mat-select>
+        </mat-form-field>
+
+        <div style="text-align: center;">
+            <h4 style="font-size: x-large;
+        font-weight: 500;
+        margin-top: revert;">Personal Details</h4>
+        </div>
+
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">FirstName</mat-label>
+            <input matInput formControlName="firstname">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">LastName</mat-label>
+            <input matInput formControlName="lastname">
+        </mat-form-field>
+
+        <mat-radio-group formControlName="gender" aria-label="Select an option"> Gender
+            <mat-radio-button value="1">Male</mat-radio-button>
+            <mat-radio-button value="2">Female</mat-radio-button>
+        </mat-radio-group>
+
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">Mobile Number</mat-label>
+            <input matInput formControlName="mobilenumber">
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">Whatsapp Number</mat-label>
+            <input matInput formControlName="whatsappnumber">
+        </mat-form-field>
+
+        
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">email ID </mat-label>
+            <input matInput formControlName="emailid">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;"> Aadhaar Number </mat-label>
+            <input matInput formControlName="adhaarnumber">
+        </mat-form-field>
+
+
+        <div style="text-align: center;">
+            <h4 style="font-size: x-large;
+        font-weight: 500;
+        margin-top: revert;">Educational Qualification </h4>
+        </div>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;"> Degree </mat-label>
+            <input matInput formControlName="degree">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;"> college/University </mat-label>
+            <input matInput formControlName="college">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;"> Years of passout </mat-label>
+            <input matInput formControlName="yearsofpassout">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;"> Percentage(%) </mat-label>
+            <input matInput formControlName="percentage">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">Employeement Status</mat-label>
+            <mat-select #name formControlName="employmentstatus">
+                <mat-option *ngFor="let clienttypes of clientypeselect" [value]="clienttypes.clienttypecode">
+                    {{clienttypes.clienttype}}
+                </mat-option>
+                
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;"> Company Name </mat-label>
+            <input matInput formControlName="companyname">
+            <mat-label style="font-weight: bold;color: #464545;"> No of Year Experience </mat-label>
+            <input matInput formControlName="noofyearexperience">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;"> Total Experience </mat-label>
+            <input matInput formControlName="totalexperience">
+            <mat-label style="font-weight: bold;color: #464545;"> Relevent Experience </mat-label>
+            <input matInput formControlName="releventexperience">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;"> Expected CTC </mat-label>
+            <input matInput formControlName="expectedctc">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;"> Current CTC </mat-label>
+            <input matInput formControlName="currentctc">
+        </mat-form-field>
+
+
+        <div style="text-align: center;">
+            <h4 style="font-size: x-large;
+        font-weight: 500;
+        margin-top: revert;"> Certification Details </h4>
+        </div>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">Certification</mat-label>
+            <mat-select #name formControlName="certification">
+                 <mat-option *ngFor="let clienttypes of clientypeselect" [value]="clienttypes.clienttypecode">
+                    {{clienttypes.clienttype}}
+                </mat-option> 
+
+                </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;"> Certificate </mat-label>
+            <input matInput formControlName="certificate">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;"> certified from </mat-label>
+            <input matInput formControlName="certifiedfrom">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;"> Validity </mat-label>
+            <input matInput formControlName="validity">
+        </mat-form-field>
+
+        <vo-mat-fileUpload>
+        </vo-mat-fileUpload>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;"> Resume </mat-label>
+            <input #fileUpload type="file" class="input_fileupload--hidden" (input)="onInput($event)"
+                (change)="onFileSelected($event)" [(ngModel)]="inputFileName" [accept]="accept">
+        </mat-form-field>
+
+        <mat-slide-toggle (change)="onToggle($event)" formControlName="status">Status</mat-slide-toggle>
+        <mat-label style="
+        color: black;
+        border-radius: 20px;
+        border-width: 2px;
+        padding-left: 4px;
+        padding-right: 4px;
+        background-color: #3b3938;
+        margin-top: 15px;" [style.backgroundColor]="statuscolor">{{status}}</mat-label>
+    </form>
+    <div style="align-self: center;margin-top: 100px;" >
+        <button mat-button type="submit" style="background-color: #5ac6c6;" (click)="saveform()">Save</button>
+    </div>
+</div> -->

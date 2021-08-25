@@ -193,7 +193,8 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
 { path: 'leadadd', loadChildren: () => import('./crm/leadadd/leadadd.module').then(m => m.LeadaddModule) },
 { path: 'costsheet', loadChildren: () => import('./crm/costsheet/costsheet.module').then(m => m.CostsheetModule) },
 { path: 'costsheetadd', loadChildren: () => import('./crm/costsheetadd/costsheetadd.module').then(m => m.CostsheetaddModule) },
-{ path: 'costsheetreverse', loadChildren: () => import('./crm/costsheetreverse/costsheetreverse.module').then(m => m.CostsheetreverseModule) }
+{ path: 'costsheetreverse', loadChildren: () => import('./crm/costsheetreverse/costsheetreverse.module').then(m => m.CostsheetreverseModule) },
+{ path: 'resourceform', loadChildren: () => import('./Resource/resourceform/resourceform.module').then(m => m.ResourceformModule) },
 ];
 
 
