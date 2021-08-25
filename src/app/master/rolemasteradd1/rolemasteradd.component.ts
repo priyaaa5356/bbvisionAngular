@@ -20,7 +20,7 @@ export class RolemasteraddComponent implements OnInit {
   statuses: any;
   @ViewChild('rname') nameElement!: ElementRef;
   status: string = "InActive";
-  statuscolor: string = "rgb(153 153 153)";
+  statuscolor: string = "rgb(249 125 125)";
   save: any;
   savedata: boolean = true;
   view: boolean = true;

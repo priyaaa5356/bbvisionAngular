@@ -36,7 +36,11 @@
                     color: #383131;"> Status </th>
                 <td mat-cell *matCellDef="let element"> {{element.status}} </td>
             </ng-container>
-           
+            <ng-container matColumnDef="mappingview">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef style="font-weight: bold;font-size: medium;
+                    color: #383131;"> Mappingview </th>
+                <td mat-cell *matCellDef="let element"> {{element.mappingview}} </td>
+            </ng-container>
 
             <ng-container matColumnDef="tools">
                 <th mat-header-cell *matHeaderCellDef style="font-weight: bold;font-size: medium;
