@@ -221,7 +221,7 @@ export class AppComponent implements OnInit {
         iconName: 'input',
         route: 'lead',
       },
-   {
+      {
         menuname: 'costsheet',
         displayName: 'Cost Sheet',
         disabled: false,
@@ -306,7 +306,7 @@ export class AppComponent implements OnInit {
       this.hr = false;
       this.finance = true;
       this.hod = false;
-    } else if (this.login.empLevel === "Admin") {
+    } else if (this.login.empLevel === "Hod") {
       this.emp = false;
       this.hr = false;
       this.finance = false;

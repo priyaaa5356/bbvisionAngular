@@ -24,6 +24,7 @@ export class InterviewroundsmasteraddComponent implements OnInit {
   @ViewChild('name1') name1Element!: ElementRef;
   status: string = "InActive";
   statuscolor: string = "rgb(153 153 153)";
+  save: any;
   savedata: boolean = true;
 
   selectedRow!: number;

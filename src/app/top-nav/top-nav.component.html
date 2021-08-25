@@ -113,10 +113,11 @@
         (click)="logout()">Logout</button> -->
 
 
-    <button mat-button [matMenuTriggerFor]="menulogout" style="background-color: white;color: #020808;
+    <button mat-button [matMenuTriggerFor]="menulogout" style="max-height: 50px;
+    margin-top: 10px;background-color: white;color: #020808;
     font-weight: bold;">{{this.login.username}}</button>
     <mat-menu #menulogout="matMenu">
-        <button mat-button style="background-color: #226e80;" (click)="logout()">
+        <button mat-button (click)="logout()">
             <mat-icon>Logout</mat-icon>
         </button>
     </mat-menu>
