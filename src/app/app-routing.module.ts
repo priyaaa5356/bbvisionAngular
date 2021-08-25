@@ -60,7 +60,7 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
   loadChildren: () => import('../app/master/simmaster/simmaster.module').then(m => m.SimmasterModule)
 },
 {
-  path: 'companymasteradd/:name/:status/:save',
+  path: 'companymasteradd',
   loadChildren: () => import('../app/master/companymasteradd/companymasteradd.module').then(m => m.CompanymasteraddModule)
 }
   ,
@@ -125,7 +125,7 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
   loadChildren: () => import('../app/master/divisionmaster/divisionmaster.module').then(m => m.DivisionmasterModule)
 },
 {
-  path: 'divisionmasteradd/:dept/:div/:status/:save',
+  path: 'divisionmasteradd',
   loadChildren: () => import('../app/master/divisionmasteradd/divisionmasteradd.module').then(m => m.DivisionmasteraddModule)
 },
 {

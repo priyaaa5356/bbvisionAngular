@@ -26,7 +26,6 @@ export class ServicemasteraddComponent implements OnInit {
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private service: ServicemasterService, private router: Router, private commonservice: CommonService) { }
   sub!: any;
   ngOnInit(): void {
-    debugger;
     this.servicemaster = history.state[0];
     if (this.servicemaster.save === "add") {
       this.savedata = true;
@@ -76,10 +75,10 @@ export class ServicemasteraddComponent implements OnInit {
       const save = JSON.stringify(this.servicemaster);
       this.service.save(save).then(data => {
         if (data.result[0].status === true) {
-          this.commonservice.message("Question Master Insert", data.result[0].message, "info");
+          this.commonservice.message("Service Master Insert", data.result[0].message, "info");
           this.router.navigate(['../servicemaster']);
         } else {
-          this.commonservice.message("Question Master Insert", data.result[0].message, "error");
+          this.commonservice.message("Service Master Insert", data.result[0].message, "error");
         }
       }, err => {
         this.commonservice.message("Error", err, "error");

@@ -14,7 +14,7 @@ export class SectionmasteraddComponent implements OnInit {
   section: Sectionmaster = new Sectionmaster();
   @ViewChild('name') nameElement!: ElementRef;
   status: string = "InActive";
-  statuscolor: string = "rgb(249 125 125)";
+  statuscolor: string = "rgb(153 153 153)";
   name: any;
   statuses: any;
   save: any;

@@ -22,8 +22,6 @@ export class AssetmasteraddsComponent implements OnInit {
     { assets: 'cpu', assetstype: 'asset', prefixcode: 'cpu', status: false },
   ];
   @ViewChild('name') searchElement!: ElementRef;
-  // status: string = "InActive";
-  // statuscolor: string = "rgb(249 125 125)";
   assetstypeselect: Assetstypeselect[] = [
     { assetstypecode: 0, assetstype: 'It asset' },
     { assetstypecode: 1, assetstype: 'It' },

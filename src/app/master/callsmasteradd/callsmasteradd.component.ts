@@ -16,7 +16,7 @@ export class CallsmasteraddComponent implements OnInit {
   statuses: any;
   @ViewChild('name') nameElement!: ElementRef;
   status: string = "InActive";
-  statuscolor: string = "rgb(249 125 125)";
+  statuscolor: string = "rgb(153 153 153)";
   save: any;
   savedata: boolean = true;
 
