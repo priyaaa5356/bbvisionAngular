@@ -176,19 +176,19 @@ export class AppComponent implements OnInit {
         route: 'userrolemaster',
       },]
     },
-    {
-      menuname: 'asset',
-      displayName: 'Assets',
-      disabled: false,
-      iconName: 'input',
-      children: [{
-        menuname: 'simmaster',
-        displayName: 'Sim Master',
-        disabled: false,
-        iconName: 'input',
-        route: 'simmaster',
-      },]
-    },
+    // {
+    //   menuname: 'asset',
+    //   displayName: 'Assets',
+    //   disabled: false,
+    //   iconName: 'input',
+    //   children: [{
+    //     menuname: 'simmaster',
+    //     displayName: 'Sim Master',
+    //     disabled: false,
+    //     iconName: 'input',
+    //     route: 'simmaster',
+    //   },]
+    // },
     // {
     //   menuname: 'utilities',
     //   displayName: 'Utilities',

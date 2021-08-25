@@ -21,7 +21,7 @@ export class DepartmentmappingComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   status: string = "InActive";
-  statuscolor: string = "rgb(249 125 125)";
+  statuscolor: string = "rgb(153 153 153)";
 
   constructor(public router: Router, private service: DepartmentmappingService, private commonservice: CommonService) {
   }
@@ -54,14 +54,12 @@ export class DepartmentmappingComponent implements OnInit {
   }
 
   add() {
-    debugger;
     const des: DepartmentMapping = new DepartmentMapping();
     this.departmentmappingedit[0] = des;
     this.router.navigateByUrl('/departmentmappingadd', { state: this.departmentmappingedit });
   }
 
   selectedrow(row: any) {
-    debugger;
     this.departmentmappingedit = this.departmentmappingview.filter((elem: any) => elem.id === row.id)
     this.departmentmappingedit[0].save = "update"
     this.router.navigateByUrl('/departmentmappingadd', { state: this.departmentmappingedit });

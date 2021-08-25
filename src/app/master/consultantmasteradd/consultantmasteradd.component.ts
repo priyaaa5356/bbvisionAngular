@@ -14,7 +14,7 @@ export class ConsultantmasteraddComponent implements OnInit {
   consultant: ConsultantMaster = new ConsultantMaster();
   @ViewChild('name') nameElement!: ElementRef;
   status: string = "InActive";
-  statuscolor: string = "rgb(249 125 125)";
+  statuscolor: string = "rgb(153 153 153)";
   save: any;
   savedata: boolean = true;
   slno1: any;
