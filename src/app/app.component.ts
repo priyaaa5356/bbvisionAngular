@@ -189,53 +189,54 @@ export class AppComponent implements OnInit {
         route: 'simmaster',
       },]
     },
-    {
-      menuname: 'utilities',
-      displayName: 'Utilities',
-      disabled: false,
-      iconName: 'input',
-      children: [{
-        menuname: 'salaryadvance',
-        displayName: 'Salary Advance',
-        disabled: false,
-        iconName: 'input',
-        route: 'salaryadvance',
-      }],
-    },
-    {
-      menuname: 'crm',
-      displayName: 'CRM',
-      disabled: false,
-      iconName: 'input',
-      children: [{
-        menuname: 'enquiry',
-        displayName: 'Enquiry',
-        disabled: false,
-        iconName: 'input',
-        route: 'enquiry',
-      },
-      {
-        menuname: 'lead',
-        displayName: 'Lead',
-        disabled: false,
-        iconName: 'input',
-        route: 'lead',
-      },
-   {
-        menuname: 'costsheet',
-        displayName: 'Cost Sheet',
-        disabled: false,
-        iconName: 'input',
-        route: 'costsheet',
-      },
-      {
-        menuname: 'costsheetreverse',
-        displayName: 'Cost Sheet Reverse',
-        disabled: false,
-        iconName: 'input',
-        route: 'costsheetreverse',
-      }]
-    }]
+    // {
+    //   menuname: 'utilities',
+    //   displayName: 'Utilities',
+    //   disabled: false,
+    //   iconName: 'input',
+    //   children: [{
+    //     menuname: 'salaryadvance',
+    //     displayName: 'Salary Advance',
+    //     disabled: false,
+    //     iconName: 'input',
+    //     route: 'salaryadvance',
+    //   }],
+    // },
+    // {
+    //   menuname: 'crm',
+    //   displayName: 'CRM',
+    //   disabled: false,
+    //   iconName: 'input',
+    //   children: [{
+    //     menuname: 'enquiry',
+    //     displayName: 'Enquiry',
+    //     disabled: false,
+    //     iconName: 'input',
+    //     route: 'enquiry',
+    //   },
+    //   {
+    //     menuname: 'lead',
+    //     displayName: 'Lead',
+    //     disabled: false,
+    //     iconName: 'input',
+    //     route: 'lead',
+    //   },
+    //   {
+    //     menuname: 'costsheet',
+    //     displayName: 'Cost Sheet',
+    //     disabled: false,
+    //     iconName: 'input',
+    //     route: 'costsheet',
+    //   },
+    //   {
+    //     menuname: 'costsheetreverse',
+    //     displayName: 'Cost Sheet Reverse',
+    //     disabled: false,
+    //     iconName: 'input',
+    //     route: 'costsheetreverse',
+    //   }]
+    // }
+  ]
   login: LoginPojo = new LoginPojo();
   constructor(private navService: CommonService, public dialog: MatDialog, private router: Router) {
     debugger;
@@ -306,7 +307,7 @@ export class AppComponent implements OnInit {
       this.hr = false;
       this.finance = true;
       this.hod = false;
-    } else if (this.login.empLevel === "Admin") {
+    } else if (this.login.empLevel === "Hod") {
       this.emp = false;
       this.hr = false;
       this.finance = false;
