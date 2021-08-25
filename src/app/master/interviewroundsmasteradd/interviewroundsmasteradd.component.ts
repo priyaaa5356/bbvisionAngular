@@ -72,7 +72,8 @@ export class InterviewroundsmasteraddComponent implements OnInit {
       name: [this.interviewrounds.name, [Validators.required]],
       status: [this.interviewrounds.status, [Validators.required]],
       //interviewfeedback: this.interviewrounds.interviewrounds1 || new FormArray([])
-      interviewfeedback: this.fb.array([this.createItem()])
+     // interviewfeedback: this.fb.array([this.createItem()])
+     //name1: [this.interviewrounds1.name1, [Validators.required]],
     });
 
    
