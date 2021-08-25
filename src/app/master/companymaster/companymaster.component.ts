@@ -49,8 +49,8 @@ export class CompanymasterComponent implements OnInit {
   }
 
   add() {
-    const des: CompanyMaster = new CompanyMaster();
-    this.companyedit[0] = des;
+    const comp: CompanyMaster = new CompanyMaster();
+    this.companyedit[0] = comp;
     this.router.navigateByUrl('/companymasteradd', { state: this.companyedit });
   }
 

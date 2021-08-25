@@ -239,13 +239,11 @@ export class AppComponent implements OnInit {
   ]
   login: LoginPojo = new LoginPojo();
   constructor(private navService: CommonService, public dialog: MatDialog, private router: Router) {
-    debugger;
     var sss = sessionStorage.getItem('logindet');
     if (sss) {
       this.topnav = true;
       this.router.navigate(['dashboard']);
     } else {
-      debugger;
       this.topnav = false;
       this.router.navigate(['/']);
     }

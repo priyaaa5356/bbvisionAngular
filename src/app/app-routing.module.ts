@@ -153,7 +153,7 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
   path: 'callsmaster',
   loadChildren: () => import('../app/master/callsmaster/callsmaster.module').then(m => m.CallsmasterModule)
 }, {
-  path: 'callsmasteradd/:name/:status/:save',
+  path: 'callsmasteradd',
   loadChildren: () => import('../app/master/callsmasteradd/callsmasteradd.module').then(m => m.CallsmasteraddModule)
 },
 {
