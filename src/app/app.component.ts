@@ -235,7 +235,20 @@ export class AppComponent implements OnInit {
     //     iconName: 'input',
     //     route: 'costsheetreverse',
     //   }]
-    // }
+    {
+      menuname: 'resource',
+      displayName: 'Resource',
+      disabled: false,
+      iconName: 'input',
+      children: [{
+        menuname: 'resourceform',
+        displayName: 'Resource Form',
+        disabled: false,
+        iconName: 'input',
+        route: 'resourceform',
+      }]
+  
+    }
   ]
   login: LoginPojo = new LoginPojo();
   constructor(private navService: CommonService, public dialog: MatDialog, private router: Router) {
