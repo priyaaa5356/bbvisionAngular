@@ -23,8 +23,10 @@ export class InterviewroundsmasterComponent implements OnInit {
       name: 'Assessment', status: true, save:'add', color: 'rgb(137 185 236)', width: '40% ', button: 'Interview Mapping',
 
       interviewrounds1: [
-        { name1: 'ApplicationForm', headingname: 'Assessments' }]
-
+        { name1: 'ApplicationForm', headingname: 'Assessments' },
+        { name1: 'ApplicationForm', headingname: 'Assessments' },
+        { name1: 'ApplicationForm', headingname: 'Assessments' },
+      ]
     },
 
   ];
