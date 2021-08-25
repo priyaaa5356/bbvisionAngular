@@ -25,22 +25,32 @@
         margin-top: 15px;" [style.backgroundColor]="statuscolor">{{status}}</mat-label>
 
         <br>
-
         <mat-label style="font-weight: bold;color: #464545;">Interview Feedback</mat-label>
-        
-
-
-        <!-- <div formArrayName="interviewfeedback" *ngFor="let a of formgroup.get('interviewfeedback').controls; let i = index">
-            <div [formGroupName]="i" style="margin-bottom: 10px;">
-              <label for="name">Name:</label>
-              <input type="text" name="name1" formControlName="name1">
-              <br><br>
-              <label for="pay">Pay:</label>
-              <input type="text" name="headingname" formControlName="headingname">
+        <br>
+        <div class="col" *ngFor="let interview of interviewrounds1 ">
+            <div class="col1">
+                <mat-card>{{ interview.headingname }}</mat-card>
             </div>
-          </div> -->
+            <div class="col2">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <input matInput #name1 id="name1" formControlName="name1">{{ interview.name1 }}
+                </mat-form-field>
+            </div>
+        </div>
 
+        <style>
+            .col {
+                display: flex;
+            }
 
+            .col div {
+                flex: 1
+            }
+
+            .col2 {
+                margin-left: 54px;
+            }
+        </style>
 
     </form>
 
