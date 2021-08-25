@@ -26,8 +26,6 @@ export class AssetmasterComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   view: boolean = true;
-  // status: string = "InActive";AssetmasteraddsComponent
-  // statuscolor: string = "rgb(249 125 125)";
   
   assetsselect: Assetsselect[] = [
     { assetscode: 0, assets: 'monitor' },
