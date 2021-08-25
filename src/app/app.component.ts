@@ -12,6 +12,9 @@ import { LoginPojo } from './master/model/login';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
   apidata: any[] = [];
   emp: boolean = false;
   hr: boolean = false;
@@ -202,40 +205,52 @@ export class AppComponent implements OnInit {
         route: 'salaryadvance',
       }],
     },
-    {
-      menuname: 'crm',
-      displayName: 'CRM',
-      disabled: false,
-      iconName: 'input',
-      children: [{
-        menuname: 'enquiry',
-        displayName: 'Enquiry',
+  //   {
+  //     menuname: 'crm',
+  //     displayName: 'CRM',
+  //     disabled: false,
+  //     iconName: 'input',
+  //     children: [{
+  //       menuname: 'enquiry',
+  //       displayName: 'Enquiry',
+  //       disabled: false,
+  //       iconName: 'input',
+  //       route: 'enquiry',
+  //     },
+  //     {
+  //       menuname: 'lead',
+  //       displayName: 'Lead',
+  //       disabled: false,
+  //       iconName: 'input',
+  //       route: 'lead',
+  //     },
+  //  {
+  //       menuname: 'costsheet',
+  //       displayName: 'Cost Sheet',
+  //       disabled: false,
+  //       iconName: 'input',
+  //       route: 'costsheet',
+  //     },
+  //     {
+  //       menuname: 'costsheetreverse',
+  //       displayName: 'Cost Sheet Reverse',
+  //       disabled: false,
+  //       iconName: 'input',
+  //       route: 'costsheetreverse',
+  //     }]}
+  {
+        menuname: 'resource',
+        displayName: 'Resource',
         disabled: false,
         iconName: 'input',
-        route: 'enquiry',
-      },
-      {
-        menuname: 'lead',
-        displayName: 'Lead',
-        disabled: false,
-        iconName: 'input',
-        route: 'lead',
-      },
-   {
-        menuname: 'costsheet',
-        displayName: 'Cost Sheet',
-        disabled: false,
-        iconName: 'input',
-        route: 'costsheet',
-      },
-      {
-        menuname: 'costsheetreverse',
-        displayName: 'Cost Sheet Reverse',
-        disabled: false,
-        iconName: 'input',
-        route: 'costsheetreverse',
-      }]
-    }]
+        children: [{
+          menuname: 'resourceform',
+          displayName: 'Resource Form',
+          disabled: false,
+          iconName: 'input',
+          route: 'resourceform',
+        }]}
+    ]
   login: LoginPojo = new LoginPojo();
   constructor(private navService: CommonService, public dialog: MatDialog, private router: Router) {
     debugger;
