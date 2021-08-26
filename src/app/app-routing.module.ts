@@ -195,9 +195,20 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
 { path: 'costsheetadd', loadChildren: () => import('./crm/costsheetadd/costsheetadd.module').then(m => m.CostsheetaddModule) },
 { path: 'costsheetreverse', loadChildren: () => import('./crm/costsheetreverse/costsheetreverse.module').then(m => m.CostsheetreverseModule) },
 { path: 'resourceform', loadChildren: () => import('./Resource/resourceform/resourceform.module').then(m => m.ResourceformModule) },
+{
+  path: 'jobdescriptionlistmaster',
+  loadChildren: () => import('../app/Resource/jobdescriptionlistmaster/jobdescriptionlistmaster.module').then(m => m.JobdescriptionlistmasterModule)
+},
+{
+  path: 'jobdescriptionviewmaster',
+  loadChildren: () => import('../app/Resource/jobdescriptionviewmaster/jobdescriptionviewmaster.module').then(m => m.JobdescriptionviewmasterModule)
+},
+{
+  path: 'jobdescriptionviewmasteradd/:id/:name/:name1/:location/:experience/:joining/:closing/:status/:save',
+  loadChildren: () => import('../app/Resource/jobdescriptionviewmasteradd/jobdescriptionviewmasteradd.module').then(m => m.JobdescriptionviewmasteraddModule)
+}
+  ,
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
