@@ -12,6 +12,9 @@ import { LoginPojo } from './master/model/login';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
   apidata: any[] = [];
   emp: boolean = false;
   hr: boolean = false;
@@ -148,8 +151,8 @@ export class AppComponent implements OnInit {
         route: 'productmaster',
       },
       {
-        menuname: 'assetmaster list',
-        displayName: 'assetmaster',
+        menuname: 'assetmaster',
+        displayName: 'Asset Master',
         disabled: false,
         iconName: 'input',
         route: 'assetmaster',
