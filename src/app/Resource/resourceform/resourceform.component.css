@@ -47,3 +47,13 @@ table{
   font-size: 14px;
   width: 50%;
 }
+.mat-radio-group{
+  display:flex ;
+  width:50%;
+  justify-content: space-between;
+}
+.file-group{
+  display:flex ;
+  width:50%;
+  justify-content: space-between;
+}

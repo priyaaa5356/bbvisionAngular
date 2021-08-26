@@ -3,10 +3,15 @@ export class Resource {
    source:string="";
    referelname:string="";
    date:string="";
+   consultant:string="";
    postappliedfor:string="";
    firstname:string="";
+   referaltype:string="";
+   consultantadd:number=0;
    lastname:string="";
    gender:string="";
+   referaladdshow:string="";
+   referalname:string="";
    mobilenumber:string="";
    whatsappnumber: string="";
    emailid:string="";
@@ -39,7 +44,15 @@ export class sourcetypeselect {
     sourcetype: string = "";
     sourcetypecode: number = 0;
 }
+export class consultantselect {
+    consultantype: string = "";
+    consultantcode: number = 0;
+}
 export class referaltypeselect {
+    referaltypeadd: string = "";
+    referaltypeaddcode: number = 0;
+}
+export class referalselect {
     referaltype: string = "";
     referaltypecode: number = 0;
 }
