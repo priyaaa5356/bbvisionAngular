@@ -19,6 +19,7 @@ export class FeedbackmasterService {
   }
 
   view(): Promise<any> {
+    debugger;
     const url = environment.API_URL + 'feedback_master/feedback_view.php';
     return this.http.post(url, this.httpOptions).toPromise();
   }

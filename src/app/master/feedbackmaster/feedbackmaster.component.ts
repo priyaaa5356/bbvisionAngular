@@ -31,10 +31,13 @@ export class FeedbackmasterComponent implements OnInit {
   }
 
   view() {
+    debugger;
     this.service.view().then(data => {
+      debugger;
       this.feedbackview = data.result;
       this.dataSource = new MatTableDataSource(this.feedbackview);
     }, err => {
+      debugger;
       alert(err);
     });
   }
@@ -58,9 +61,9 @@ export class FeedbackmasterComponent implements OnInit {
     this.feedbackedit[0].save = "update"
     this.router.navigateByUrl('/feedbackmasteradd', { state: this.feedbackedit });
   }
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-  }
+  // ngAfterViewInit() {
+  //   this.dataSource.sort = this.sort;
+  //   this.dataSource.paginator = this.paginator;
+  // }
 
 }
