@@ -70,7 +70,6 @@ export class CallsmasteraddComponent implements OnInit {
       this.callsmaster.name = this.formgroup.value.name;
       this.callsmaster.status = this.formgroup.value.status;
       this.callsmaster.created_by = this.login.empcode;
-      this.callsmaster.status = this.formgroup.value.status;
       const save = JSON.stringify(this.callsmaster);
       this.service.save(save).then(data => {
         if (data.result[0].status === true) {
@@ -95,8 +94,7 @@ export class CallsmasteraddComponent implements OnInit {
     if (this.formgroup) {
       this.callsmaster.name = this.formgroup.value.name;
       this.callsmaster.status = this.formgroup.value.status;
-      this.callsmaster.created_by = this.login.empcode;
-      this.callsmaster.status = this.formgroup.value.status;
+      this.callsmaster.modified_by = this.login.empcode;
       const save = JSON.stringify(this.callsmaster);
       this.service.update(save).then(data => {
         if (data.result[0].status === true) {

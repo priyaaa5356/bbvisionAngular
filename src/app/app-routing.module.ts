@@ -117,7 +117,7 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
   loadChildren: () => import('../app/master/sectionmaster/sectionmaster.module').then(m => m.SectionmasterModule)
 },
 {
-  path: 'sectionmasteradd/:name/:status/:save',
+  path: 'sectionmasteradd',
   loadChildren: () => import('../app/master/sectionmasteradd/sectionmasteradd.module').then(m => m.SectionmasteraddModule)
 },
 {
@@ -161,7 +161,7 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
   loadChildren: () => import('../app/master/assetmaster/assetmaster.module').then(m => m.AssetmasterModule)
 },
 {
-  path: 'assetmasteradds/:assets/:prefixcode/:assetstype/:status/:save',
+  path: 'assetmasteradds',
   loadChildren: () => import('../app/master/assetmasteradds/assetmasteradds.module').then(m => m.AssetmasteraddsModule)
 },
 { path: 'jobdescription', loadChildren: () => import('../app/master/jobdescription/jobdescription.module').then(m => m.JobdescriptionModule) },

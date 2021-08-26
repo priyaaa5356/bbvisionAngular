@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
-export class UserrolemasterService {
+export class SectionmasterService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -14,17 +14,17 @@ export class UserrolemasterService {
   constructor(private http: HttpClient) { }
 
   save(save: any): Promise<any> {
-    const url = environment.API_URL + 'userrole_master/role_insert.php';
+    const url = environment.API_URL + 'section_master/section_insert.php';
     return this.http.post(url, save, this.httpOptions).toPromise();
   }
 
   view(): Promise<any> {
-    const url = environment.API_URL + 'userrole_master/role_view.php';
+    const url = environment.API_URL + 'section_master/section_view.php';
     return this.http.post(url, this.httpOptions).toPromise();
   }
 
   update(update: any): Promise<any> {
-    const url = environment.API_URL + 'userrole_master/role_update.php';
+    const url = environment.API_URL + 'section_master/section_update.php';
     return this.http.post(url, update, this.httpOptions).toPromise();
   }
 }

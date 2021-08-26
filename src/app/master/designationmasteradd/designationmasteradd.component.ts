@@ -1,8 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CommonService } from 'src/app/common/common.service';
+import { Assetstypeselect } from '../model/assetsmaster';
 import { Departmentselect } from '../model/departmentmapping';
 import { DesignationMaster } from '../model/designationmaster';
 import { LoginPojo } from '../model/login';
