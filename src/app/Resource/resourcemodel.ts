@@ -17,21 +17,24 @@ export class Resource {
    employeestatus:string="";
    companyname: string="";
    totalexperience: string="";
-   noofexperience: string="";
+   noofyearexperience: string="";
+   college:string="";
+   emloyeestatus:string="";
    releventexperience: string="";
    expectedctc:string="";
    currentctc: string ="";
    certification:string="";
    certificate:string="";
    certifiedfrom: string="";
+   yearsofexperience:string="";
    validity:string="";
    resume:string="";
+   certficate:string="";
    status:boolean=false;
 
 
-
-
 }
+
 export class sourcetypeselect {
     sourcetype: string = "";
     sourcetypecode: number = 0;
