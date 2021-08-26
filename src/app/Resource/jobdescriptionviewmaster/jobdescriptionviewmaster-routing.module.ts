@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RolemasterComponent } from './rolemaster.component';
+import { JobdescriptionviewmasterComponent } from './jobdescriptionviewmaster.component';
 
 const routes: Routes = [{
   path: '',
-  component: RolemasterComponent,
+  component: JobdescriptionviewmasterComponent,
 }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class RolemasterRoutingModule { }
+export class JobdescriptionviewmasterRoutingModule { }
