@@ -1,11 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatSelect } from '@angular/material/select';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { ActivatedRoute, Router } from '@angular/router';
-import { certificationselect, employeementstatusselect, postappliedforselect, referaltypeselect, Resource, sourcetypeselect } from '../resourcemodel';
+import { certificationselect, consultantselect, employeementstatusselect, postappliedforselect, referalselect, referaltypeselect, Resource, sourcetypeselect } from '../resourcemodel';
 export const MY_FORMATS = {
   parse: {
     dateInput: 'LL',
@@ -29,63 +29,99 @@ export const MY_FORMATS = {
 })
 export class ResourceformComponent implements OnInit {
   formgroup!: FormGroup;
- 
+  consultanted: boolean = false;
+  raferal: boolean = false;
 
-  // resource: Resource[] =
-  //  [{ source: 'good', referelname: '', date: '', postappliedfor: '', firstname: '', lastname: '', gender: '', mobilenumber: '', whatsappnumber: '', emailid: '', adhaarnumber: '', degree: '', yearsofpassout: '', percentage: '', employeestatus: '', companyname: '', totalexperience: '', noofexperience: '', releventexperience: '', expectedctc: '', currentctc: '', certification: '', certificate: '', certifiedfrom: '', validity: '', resume: '', status: true }]
+  internal: boolean = false;
+  external: boolean = false;
 
+  fresher: boolean = false;
+  experience: boolean = false;
+  refer: boolean = false;
+
+  yes: boolean = false;
+  no: boolean = false;
   status: any;
   statuscolor: string = "rgb(153 153 153)";
   resource: Resource = new Resource();
   save: any;
   savedata: any;
   fileToUpload: any;
+
+  consultants: consultantselect[] = [];
+
   @ViewChild('name') searchElement!: ElementRef;
   sourceselect: sourcetypeselect[] = [
-    { sourcetype: 'facebook', sourcetypecode: 0 },
-    { sourcetype: 'indeed', sourcetypecode: 0},
+    { sourcetype: 'Naukri', sourcetypecode: 0 },
+    { sourcetype: 'Consultant', sourcetypecode: 1 },
+    { sourcetype: 'WalkIn', sourcetypecode: 2 },
+    { sourcetype: 'Fackbook', sourcetypecode: 3 },
+    { sourcetype: 'indeed', sourcetypecode: 4 },
+    { sourcetype: 'ReferalType', sourcetypecode: 5 },
+  ];
+  consultant: consultantselect[] = [
+    { consultantype: 'bluebase', consultantcode: 0 },
+    { consultantype: 'Quadsel', consultantcode: 1 },
+    { consultantype: 'Feat business solution', consultantcode: 2 },
 
   ];
-  referal: referaltypeselect[] = [
+  referaltype: referaltypeselect[] = [
+    { referaltypeadd: 'Internal', referaltypeaddcode: 0 },
+    { referaltypeadd: 'External', referaltypeaddcode: 1 },
+
+  ];
+  referal: referalselect[] = [
     { referaltype: 'preethi', referaltypecode: 0 },
-    { referaltype: 'gopinath', referaltypecode: 0 },
+    { referaltype: 'gopinath', referaltypecode: 1 },
 
   ];
+
   postapplied: postappliedforselect[] = [
     { postappliedfortype: 'senior developer ', postappliedfortypecode: 0 },
-    { postappliedfortype: 'junior developer ', postappliedfortypecode: 0 },
+    { postappliedfortype: 'junior developer ', postappliedfortypecode: 1 },
 
   ];
   employeement: employeementstatusselect[] = [
-    {  employeementstatustype: 'Fresher', employeementstatustypecode: 0 },
-    {  employeementstatustype: 'Experience', employeementstatustypecode: 0 },
+    { employeementstatustype: 'Fresher', employeementstatustypecode: 0 },
+    { employeementstatustype: 'Experience', employeementstatustypecode: 1 },
 
   ];
   certification: certificationselect[] = [
-    {   certificationtype: 'Yes', certificationtypecode: 0 },
-    {   certificationtype: 'No', certificationtypecode: 0 },
+    { certificationtype: 'Yes', certificationtypecode: 0 },
+    { certificationtype: 'No', certificationtypecode: 1 },
 
   ];
 
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private router: Router) {
   }
   ngOnInit(): void {
+    // this.resource = history.state[0];
 
-
+    if (this.save === "add") {
+      this.savedata = true;
+    } else {
+      this.savedata = false;
+    }
+    debugger;
     this.formgroup = this.fb.group({
-      source: [this.resource.source],
+      source: [this.resource.source, [Validators.required]],
       referalname: [this.resource.referelname],
       date: [this.resource.date],
-      postappliedfor: [this.resource.postappliedfor],
-      firstname: [this.resource.firstname],
-      lastname: [this.resource.lastname],
+      consultant: [this.resource.consultant],
+      consultantadd: [this.resource.consultantadd],
+      referaltype: [this.resource.referaltype],
+      postappliedfor: [this.resource.postappliedfor, [Validators.required]],
+      firstname: [this.resource.firstname, [Validators.required]],
+      referalnameaddshow:[this.resource.referaladdshow],
+      referalnameadd: [this.resource.referalname],
+      lastname: [this.resource.lastname, [Validators.required]],
       gender: [this.resource.gender],
-      mobilenumber: [this.resource.mobilenumber],
+      mobilenumber: [this.resource.mobilenumber, [Validators.required]],
       whatsappnumber: [this.resource.whatsappnumber],
-      emailid: [this.resource.emailid],
+      emailid: [this.resource.emailid, [Validators.required]],
       adhaarnumber: [this.resource.adhaarnumber],
-      degree: [this.resource.degree],
-      college: [this.resource.college],
+      degree: [this.resource.degree, [Validators.required]],
+      college: [this.resource.college, [Validators.required]],
       yearsofpassout: [this.resource.yearsofpassout],
       percentage: [this.resource.percentage],
       employmentstatus: [this.resource.employeestatus],
@@ -99,16 +135,14 @@ export class ResourceformComponent implements OnInit {
       certificate: [this.resource.certficate],
       certifiedfrom: [this.resource.certifiedfrom],
       validity: [this.resource.validity],
-      noofyearexperience:[this.resource.noofyearexperience],
-      resume: [this.resource.resume],
+      noofyearexperience: [this.resource.noofyearexperience],
+      resume: [this.resource.resume, [Validators.required]],
       status: [this.resource.status],
     });
 
-    if (this.save === "add") {
-      this.savedata = true;
-    } else {
-      this.savedata = false;
-    }
+    this.formgroup.controls.certification.setValue(0);
+    this.certificationtypechangedefault(0);
+
   }
   onToggle(event: MatSlideToggleChange) {
     debugger;
@@ -125,6 +159,76 @@ export class ResourceformComponent implements OnInit {
   }
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
-}
+  }
+  sourcetypechange(event: any) {
+
+
+    if (event.value === 1) {
+      this.consultanted = true;
+      this.raferal = false;
+      this.formgroup.controls.consultantadd.setValue(this.consultant[0].consultantcode);
+
+    } else if (event.value === 5) {
+      this.consultanted = false;
+      this.raferal = true;
+    }
+    console.log(event);
+  }
+  referaltypechange(event: any) {
+
+
+    if (event.value === 0) {
+      this.internal = true;
+      this.external = false;
+    } else if (event.value === 1) {
+      this.internal = false;
+      this.external = true;
+    } 
+    console.log(event);
+  }
+  employeementtypechange(event: any) {
+    if (event.value === 0) {
+      this.fresher = true;
+      this.experience = false;
+    } else if (event.value === 1) {
+      this.fresher = false;
+      this.experience = true;
+    }
+  }
+ 
+  certificationtypechange(event: any) {
+    debugger;
+    if (event.value === 0) {
+      this.yes = true;
+      this.no = false;
+    } else if (event.value === 1) {
+      this.yes = false;
+      this.no = true;
+    }
+  }
+  certificationtypechangedefault(event: any) {
+    debugger;
+    if (event === 0) {
+      this.yes = true;
+      this.no = false;
+    } else if (event === 1) {
+      this.yes = false;
+      this.no = true;
+    }
+  }
+  
+  selectedname(event: any) {
+    debugger;
+    if (event.value === 0) {
+      this.formgroup.controls.consultantadd.setValue("Rajeshwari");
+    } else if (event.value === 1) {
+      this.formgroup.controls.consultantadd.setValue("Girish");
+    } else if (event.value === 2) {
+      this.formgroup.controls.consultantadd.setValue("Guru");
+    }
+  }
+
+
+
 
 }
