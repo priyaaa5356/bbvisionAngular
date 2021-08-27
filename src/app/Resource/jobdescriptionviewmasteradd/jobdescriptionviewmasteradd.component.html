@@ -1,8 +1,8 @@
-<button mat-mini-fab routerLink="../../../../../../../../../../jobdescriptionviewmaster"
+<button mat-mini-fab routerLink="../../../../../../../../../../../../../../jobdescriptionviewmaster"
     style="background-color: #5ac6c6;float: right;margin-right: 10px;">
     <mat-icon>arrow_back</mat-icon>
 </button>
-<div fxLayout="column">
+<div fxLayout="column" *ngIf="!view && !allocate">
     <div style="-webkit-align-items: center;" fxLayout="column">
         <img src="assets/images/BB LOGO.png" style="width:250px;height:150px;border-style: none;"
             onFocus="if(document.getElementById('_arrowdown').disabled == true){return false;}" disabled='true'
@@ -15,10 +15,10 @@
             <mat-label style="font-weight: bold;color: #464545;">Job Title</mat-label>
             <input matInput #name id="name" formControlName="name">
         </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="outline">
+        <!-- <mat-form-field class="example-full-width" appearance="outline">
             <mat-label style="font-weight: bold;color: #464545;">Id</mat-label>
             <input matInput #id id="id" formControlName="id">
-        </mat-form-field>
+        </mat-form-field> -->
         <mat-form-field class="example-full-width" appearance="outline">
             <mat-label style="font-weight: bold;color: #464545;">Client</mat-label>
             <input matInput #name1 id="name1" formControlName="name1">
@@ -30,6 +30,22 @@
         <mat-form-field class="example-full-width" appearance="outline">
             <mat-label style="font-weight: bold;color: #464545;">Experience</mat-label>
             <input matInput #location id="experience" formControlName="experience">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">Education Qualification</mat-label>
+            <input matInput #education id="education" formControlName="education">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">Certifications</mat-label>
+            <input matInput #certificate id="certificate" formControlName="certificate">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">Roles & Responsibilities</mat-label>
+            <input matInput #roles formControlName="roles">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label style="font-weight: bold;color: #464545;">Skills Required</mat-label>
+            <input matInput #skill formControlName="skill">
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="outline">
             <mat-label style="font-weight: bold;color: #464545;">Joining Date</mat-label>
@@ -59,3 +75,145 @@
         <button mat-button type="submit" style="background-color: #5ac6c6;" (click)="update()">Update</button>
     </div>
 </div>
+
+
+<div fxLayout="column" *ngIf="view">
+    <div style="-webkit-align-items: center;" fxLayout="column">
+        <img src="assets/images/BB LOGO.png" style="width:250px;height:150px;border-style: none;"
+            onFocus="if(document.getElementById('_arrowdown').disabled == true){return false;}" disabled='true'
+            id="_arrowdown" tabindex='0'>
+    </div>
+    <form [formGroup]="formgroup" class="example-form" fxLayout="column" fxFlex="50"
+    style="-webkit-align-items: center;">
+   
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Job Title</mat-label>
+        <input matInput #name id="name" formControlName="name" readonly>
+    </mat-form-field>
+    <!-- <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Id</mat-label>
+        <input matInput #id id="id" formControlName="id">
+    </mat-form-field> -->
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Client</mat-label>
+        <input matInput #name1 id="name1" formControlName="name1" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Location</mat-label>
+        <input matInput #location id="location" formControlName="location" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Experience</mat-label>
+        <input matInput #location id="experience" formControlName="experience" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Education Qualification</mat-label>
+        <input matInput #education id="education" formControlName="education" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Certifications</mat-label>
+        <input matInput #certificate id="certificate" formControlName="certificate" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Roles & Responsibilities</mat-label>
+        <input matInput #roles formControlName="roles" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Skills Required</mat-label>
+        <input matInput #skill formControlName="skill" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Joining Date</mat-label>
+        <input matInput #joining id="joining" formControlName="joining" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Closing Date</mat-label>
+        <input matInput #joining id="closing" formControlName="closing" readonly>
+    </mat-form-field>
+   
+    <!-- <mat-slide-toggle (change)="onToggle($event)" formControlName="status">Status</mat-slide-toggle>
+    <mat-label style="
+    color: black;
+    border-radius: 20px;
+    border-width: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    background-color: #3b3938;
+    margin-top: 15px;" [style.backgroundColor]="statuscolor">{{status}}</mat-label> -->
+</form>
+
+</div>
+
+<div fxLayout="column" *ngIf="allocate">
+    <div style="-webkit-align-items: center;" fxLayout="column">
+        <img src="assets/images/BB LOGO.png" style="width:250px;height:150px;border-style: none;"
+            onFocus="if(document.getElementById('_arrowdown').disabled == true){return false;}" disabled='true'
+            id="_arrowdown" tabindex='0'>
+    </div>
+    <form [formGroup]="formgroup" class="example-form" fxLayout="column" fxFlex="50"
+    style="-webkit-align-items: center;">
+   
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Job Title</mat-label>
+        <input matInput #name id="name" formControlName="name" readonly>
+    </mat-form-field>
+    <!-- <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Id</mat-label>
+        <input matInput #id id="id" formControlName="id">
+    </mat-form-field> -->
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Client</mat-label>
+        <input matInput #name1 id="name1" formControlName="name1" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Location</mat-label>
+        <input matInput #location id="location" formControlName="location" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Experience</mat-label>
+        <input matInput #location id="experience" formControlName="experience" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Education Qualification</mat-label>
+        <input matInput #education id="education" formControlName="education" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Certifications</mat-label>
+        <input matInput #certificate id="certificate" formControlName="certificate" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Roles & Responsibilities</mat-label>
+        <input matInput #roles formControlName="roles" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Skills Required</mat-label>
+        <input matInput #skill formControlName="skill" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Joining Date</mat-label>
+        <input matInput #joining id="joining" formControlName="joining" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Closing Date</mat-label>
+        <input matInput #joining id="closing" formControlName="closing" readonly>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label style="font-weight: bold;color: #464545;">Allocate</mat-label>
+        <input matInput #skill formControlName="skill" readonly>
+    </mat-form-field>
+    <!-- <mat-slide-toggle (change)="onToggle($event)" formControlName="status">Status</mat-slide-toggle>
+    <mat-label style="
+    color: black;
+    border-radius: 20px;
+    border-width: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    background-color: #3b3938;
+    margin-top: 15px;" [style.backgroundColor]="statuscolor">{{status}}</mat-label> -->
+</form>
+<div style="align-self: center;margin-top: 100px;" *ngIf="!savedata">
+    <button mat-button type="submit" style="background-color: #5ac6c6;" (click)="update()">Allocate</button>
+</div>
+</div>
+
+

@@ -204,7 +204,7 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
   loadChildren: () => import('../app/Resource/jobdescriptionviewmaster/jobdescriptionviewmaster.module').then(m => m.JobdescriptionviewmasterModule)
 },
 {
-  path: 'jobdescriptionviewmasteradd/:id/:name/:name1/:location/:experience/:joining/:closing/:status/:save',
+  path: 'jobdescriptionviewmasteradd/:id/:name/:name1/:location/:experience/:roles/:skill/:certificate/:education/:joining/:closing/:status/:save',
   loadChildren: () => import('../app/Resource/jobdescriptionviewmasteradd/jobdescriptionviewmasteradd.module').then(m => m.JobdescriptionviewmasteraddModule)
 }
   ,

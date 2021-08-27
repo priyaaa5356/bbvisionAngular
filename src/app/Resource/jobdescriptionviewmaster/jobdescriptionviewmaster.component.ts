@@ -13,13 +13,13 @@ import { JobdescriptionviewMaster } from '../model/jobdescriptionviewmaster';
 export class JobdescriptionviewmasterComponent implements OnInit {
   @ViewChild('search') searchElement!: ElementRef;
   @ViewChild('name') nameElement!: ElementRef;
-  displayedColumns: string[] = ['id','name','name1','location', 'experience','joining','closing','status', 'tools'];
+  displayedColumns: string[] = ['id', 'name', 'name1', 'location', 'experience', 'joining', 'closing', 'status', 'tools','tools1','tools2'];
   dataSource!: MatTableDataSource<JobdescriptionviewMaster>;
-  prefix: JobdescriptionviewMaster[] = [
-    { id: '1', name: 'Trainee', name1: 'Krishna	',location: 'Chennai', experience:'2', joining:'2021-09-01',closing:'2021-09-01', status: true },
-    {id: '2',  name: 'Trainee', name1: 'Krishna	',location: 'Chennai', experience:'3', joining:'2021-09-01',closing:'2021-09-01', status: true },
-    { id: '3', name: 'Trainee', name1: 'Krishna	',location: 'Chennai', experience:'4', joining:'2021-09-01',closing:'2021-09-01', status: true },
-   
+  jobs: JobdescriptionviewMaster[] = [
+    { id: '1', name: 'Trainee', name1: 'Krishna	', location: 'Chennai', experience: '2', roles: '2',skill: '2', certificate: 'Java', education: 'BCA', joining: '2021-09-01',  closing: '2021-09-01', status: true },
+    { id: '2', name: 'Trainee', name1: 'Krishna	', location: 'Chennai', experience: '3', roles: '2', skill: '2', certificate: 'Java', education: 'BCA', joining: '2021-09-01', closing: '2021-09-01', status: true },
+    { id: '3', name: 'Trainee', name1: 'Krishna	', location: 'Chennai', experience: '4', roles: '2',skill: '2',  certificate: 'Java', education: 'BCA', joining: '2021-09-01', closing: '2021-09-01', status: true },
+
   ];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -30,7 +30,7 @@ export class JobdescriptionviewmasterComponent implements OnInit {
     setTimeout(() => {
       this.searchElement.nativeElement.focus();
     }, 0);
-    this.dataSource = new MatTableDataSource(this.prefix);
+    this.dataSource = new MatTableDataSource(this.jobs);
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -41,11 +41,17 @@ export class JobdescriptionviewmasterComponent implements OnInit {
   }
 
   add() {
-    this.router.navigate(['/jobdescriptionviewmasteradd', "", "","","","","", "",false, "add"]);
+    this.router.navigate(['/jobdescriptionviewmasteradd', "", "", "", "", "", "", "", "", "","","", false, "add"]);
   }
 
   selectedrow(row: any) {
-    this.router.navigate(['/jobdescriptionviewmasteradd', row.id, row.name, row.name1, row.location, row.experience,row.joining, row.closing, row.status, "update"]);
+    this.router.navigate(['/jobdescriptionviewmasteradd', row.id, row.name, row.name1, row.location, row.experience, row.roles,row.skill,row.certificate, row.education, row.joining, row.closing, row.status, "update"]);
+  }
+  selectedrow1(row: any) {
+    this.router.navigate(['/jobdescriptionviewmasteradd', row.id, row.name, row.name1, row.location, row.experience, row.roles,row.skill,row.certificate, row.education, row.joining, row.closing, row.status, "view"]);
+  }
+  selectedrow2(row: any) {
+    this.router.navigate(['/jobdescriptionviewmasteradd', row.id, row.name, row.name1, row.location, row.experience, row.roles,row.skill,row.certificate, row.education, row.joining, row.closing, row.status, "allocate"]);
   }
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;

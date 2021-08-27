@@ -13,11 +13,15 @@ import { JobdescriptionviewmasterComponent } from '../jobdescriptionviewmaster/j
 export class JobdescriptionviewmasteraddComponent implements OnInit {
   @ViewChild(JobdescriptionviewmasterComponent) childReference: any;
   formgroup!: FormGroup;
-  prefix: JobdescriptionviewMaster = new JobdescriptionviewMaster();
+  jobs: JobdescriptionviewMaster = new JobdescriptionviewMaster();
   name: any;
   name1: any;
   location: any;
   experience: any;
+  education: any;
+  roles: any;
+  skill: any;
+  certificate: any;
   joining: any;
   closing: any;
   id: any;
@@ -27,6 +31,8 @@ export class JobdescriptionviewmasteraddComponent implements OnInit {
   statuscolor: string = "rgb(153 153 153)";
   save: any;
   savedata: boolean = true;
+  view: boolean = true;
+  allocate: boolean = true;
   constructor(private route: ActivatedRoute, private fb: FormBuilder) { }
   sub!: any;
   ngOnInit(): void {
@@ -37,6 +43,10 @@ export class JobdescriptionviewmasteraddComponent implements OnInit {
       this.name1 = params.get('name1');
       this.location = params.get('location');
       this.experience = params.get('experience');
+      this.education = params.get('education');
+      this.roles = params.get('roles');
+      this.skill = params.get('skill');
+      this.certificate = params.get('certificate');
       this.joining = params.get('joining');
       this.closing = params.get('closing');
       this.statuses = params.get('status');
@@ -44,29 +54,47 @@ export class JobdescriptionviewmasteraddComponent implements OnInit {
       console.log(params);
     });
     debugger;
-    this.prefix.id = this.id;
-    this.prefix.name = this.name;
-    this.prefix.name1 = this.name1;
-    this.prefix.location = this.location;
-    this.prefix.experience = this.experience;
-    this.prefix.joining = this.joining;
-    this.prefix.closing = this.closing;
-    this.prefix.status = this.statuses;
+    this.jobs.id = this.id;
+    this.jobs.name = this.name;
+    this.jobs.name1 = this.name1;
+    this.jobs.location = this.location;
+    this.jobs.experience = this.experience;
+    this.jobs.education = this.education;
+    this.jobs.roles = this.roles;
+    this.jobs.skill = this.skill;
+    this.jobs.certificate = this.certificate;
+    this.jobs.joining = this.joining;
+    this.jobs.closing = this.closing;
+    this.jobs.status = this.statuses;
 
     if (this.save === "add") {
       this.savedata = true;
     } else {
       this.savedata = false;
     }
+    if (this.save === "view") {
+      this.view = true;
+    } else {
+      this.view = false;
+    }
+    if (this.save === "allocate") {
+      this.allocate = true;
+    } else {
+      this.allocate = false;
+    }
     this.formgroup = this.fb.group({
-      id: [this.prefix.id, [Validators.required]],
-      name: [this.prefix.name, [Validators.required]],
-      name1: [this.prefix.name1, [Validators.required]],
-      location: [this.prefix.location, [Validators.required]],
-      experience: [this.prefix.experience, [Validators.required]],
-      joining: [this.prefix.joining, [Validators.required]],
-      closing: [this.prefix.closing, [Validators.required]],
-      status: [this.prefix.status, [Validators.required]]
+      id: [this.jobs.id, [Validators.required]],
+      name: [this.jobs.name, [Validators.required]],
+      name1: [this.jobs.name1, [Validators.required]],
+      location: [this.jobs.location, [Validators.required]],
+      experience: [this.jobs.experience, [Validators.required]],
+      education: [this.jobs.education, [Validators.required]],
+      roles: [this.jobs.roles, [Validators.required]],
+      skill: [this.jobs.skill, [Validators.required]],
+      certificate: [this.jobs.certificate, [Validators.required]],
+      joining: [this.jobs.joining, [Validators.required]],
+      closing: [this.jobs.closing, [Validators.required]],
+      status: [this.jobs.status, [Validators.required]]
     })
     debugger;
     console.log(this.formgroup.value)
@@ -106,4 +134,5 @@ export class JobdescriptionviewmasteraddComponent implements OnInit {
   update(){
     
   }
+  
 }
