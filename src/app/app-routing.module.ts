@@ -176,7 +176,7 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
 },
 { path: 'userrolemaster', loadChildren: () => import('../app/master/userrolemaster/userrolemaster.module').then(m => m.UserrolemasterModule) },
 {
-  path: 'userrolemasteradd/:empname/:code/:rolename/:rolecode/:username/:password/:status/:save',
+  path: 'userrolemasteradd',
   loadChildren: () => import('../app/master/userrolemasteradd/userrolemasteradd.module').then(m => m.UserrolemasteraddModule)
 },
 {
@@ -206,7 +206,9 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
 {
   path: 'jobdescriptionviewmasteradd/:id/:name/:name1/:location/:experience/:joining/:closing/:status/:save',
   loadChildren: () => import('../app/Resource/jobdescriptionviewmasteradd/jobdescriptionviewmasteradd.module').then(m => m.JobdescriptionviewmasteraddModule)
-}
+},
+{ path: 'resourcelist', loadChildren: () => import('./Resource/resourcelist/resourcelist.module').then(m => m.ResourcelistModule) },
+{ path: 'resourcelistadd', loadChildren: () => import('./Resource/resourceform/resourcelistadd/resourcelistadd.module').then(m => m.ResourcelistaddModule) }
   ,
 ];
 

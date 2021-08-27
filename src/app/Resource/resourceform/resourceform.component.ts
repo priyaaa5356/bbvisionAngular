@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatSelect } from '@angular/material/select';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Certificationselect, Consultantselect, Employeementstatusselect, Postappliedforselect, Referalselect, Referaltypeselect, Resource, Sourcetypeselect } from '../model/resourcemodel';
@@ -49,7 +50,8 @@ export class ResourceformComponent implements OnInit {
 
   consultants: Consultantselect[] = [];
 
-  @ViewChild('name') searchElement!: ElementRef;
+  @ViewChild('search') searchElement!: ElementRef;
+  @ViewChild('name') someRef!: MatSelect;
   sourceselect: Sourcetypeselect[] = [
     { sourcetype: 'Naukri', sourcetypecode: 0 },
     { sourcetype: 'Consultant', sourcetypecode: 1 },
@@ -142,8 +144,12 @@ export class ResourceformComponent implements OnInit {
     this.formgroup.controls.certification.setValue(0);
     this.certificationtypechangedefault(0);
 
+ 
+    this.referaltypechangedefalt(0);
 
-
+    setTimeout(() => {
+      this.searchElement.nativeElement.focus();
+    }, 0);
   }
   onToggle(event: MatSlideToggleChange) {
     debugger;
@@ -172,6 +178,7 @@ export class ResourceformComponent implements OnInit {
     } else if (event.value === 5) {
       this.consultanted = false;
       this.raferal = true;
+      
     }
     console.log(event);
   }
@@ -182,6 +189,18 @@ export class ResourceformComponent implements OnInit {
       this.internal = true;
       this.external = false;
     } else if (event.value === 1) {
+      this.internal = false;
+      this.external = true;
+    }
+    console.log(event);
+  }
+  referaltypechangedefalt(event: any) {
+
+
+    if (event === 0) {
+      this.internal = true;
+      this.external = false;
+    } else if (event === 1) {
       this.internal = false;
       this.external = true;
     }

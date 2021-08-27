@@ -252,6 +252,13 @@ export class AppComponent implements OnInit {
         route: 'resourceform',
       },
       {
+        menuname: 'resourcelist',
+        displayName: 'Resource List ',
+        disabled: false,
+        iconName: 'input',
+        route: 'resourcelist',
+      },
+      {
         menuname: 'jobdescriptionlistmaster',
         displayName: 'Jobdescription List',
         disabled: false,
@@ -265,6 +272,7 @@ export class AppComponent implements OnInit {
         iconName: 'input',
         route: 'jobdescriptionviewmaster',
       }
+    
     ]
   
     }
