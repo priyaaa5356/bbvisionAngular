@@ -112,7 +112,7 @@ export class ResourceformComponent implements OnInit {
       referaltype: [this.resource.referaltype],
       postappliedfor: [this.resource.postappliedfor, [Validators.required]],
       firstname: [this.resource.firstname, [Validators.required]],
-      referalnameaddshow:[this.resource.referaladdshow],
+      referalnameaddshow: [this.resource.referaladdshow],
       referalnameadd: [this.resource.referalname],
       lastname: [this.resource.lastname, [Validators.required]],
       gender: [this.resource.gender],
@@ -183,7 +183,7 @@ export class ResourceformComponent implements OnInit {
     } else if (event.value === 1) {
       this.internal = false;
       this.external = true;
-    } 
+    }
     console.log(event);
   }
   employeementtypechange(event: any) {
@@ -195,7 +195,7 @@ export class ResourceformComponent implements OnInit {
       this.experience = true;
     }
   }
- 
+
   certificationtypechange(event: any) {
     debugger;
     if (event.value === 0) {
@@ -216,7 +216,7 @@ export class ResourceformComponent implements OnInit {
       this.no = true;
     }
   }
-  
+
   selectedname(event: any) {
     debugger;
     if (event.value === 0) {
