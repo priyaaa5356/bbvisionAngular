@@ -40,31 +40,31 @@ export class Resource {
 
 }
 
-export class sourcetypeselect {
+export class Sourcetypeselect {
     sourcetype: string = "";
     sourcetypecode: number = 0;
 }
-export class consultantselect {
+export class Consultantselect {
     consultantype: string = "";
     consultantcode: number = 0;
 }
-export class referaltypeselect {
+export class Referaltypeselect {
     referaltypeadd: string = "";
     referaltypeaddcode: number = 0;
 }
-export class referalselect {
+export class Referalselect {
     referaltype: string = "";
     referaltypecode: number = 0;
 }
-export class postappliedforselect {
+export class Postappliedforselect {
     postappliedfortype: string = "";
     postappliedfortypecode: number = 0;
 }
-export class employeementstatusselect {
+export class Employeementstatusselect {
     employeementstatustype: string = "";
     employeementstatustypecode: number = 0;
 }
-export class certificationselect {
+export class Certificationselect {
     certificationtype: string = "";
     certificationtypecode: number = 0;
 }

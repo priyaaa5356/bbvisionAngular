@@ -2,10 +2,9 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import { MatSelect } from '@angular/material/select';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { ActivatedRoute, Router } from '@angular/router';
-import { certificationselect, consultantselect, employeementstatusselect, postappliedforselect, referalselect, referaltypeselect, Resource, sourcetypeselect } from '../resourcemodel/resourcemodel';
+import { Certificationselect, Consultantselect, Employeementstatusselect, Postappliedforselect, Referalselect, Referaltypeselect, Resource, Sourcetypeselect } from '../model/resourcemodel';
 export const MY_FORMATS = {
   parse: {
     dateInput: 'LL',
@@ -48,10 +47,10 @@ export class ResourceformComponent implements OnInit {
   savedata: any;
   fileToUpload: any;
 
-  consultants: consultantselect[] = [];
+  consultants: Consultantselect[] = [];
 
   @ViewChild('name') searchElement!: ElementRef;
-  sourceselect: sourcetypeselect[] = [
+  sourceselect: Sourcetypeselect[] = [
     { sourcetype: 'Naukri', sourcetypecode: 0 },
     { sourcetype: 'Consultant', sourcetypecode: 1 },
     { sourcetype: 'WalkIn', sourcetypecode: 2 },
@@ -59,34 +58,34 @@ export class ResourceformComponent implements OnInit {
     { sourcetype: 'indeed', sourcetypecode: 4 },
     { sourcetype: 'ReferalType', sourcetypecode: 5 },
   ];
-  consultant: consultantselect[] = [
+  consultant: Consultantselect[] = [
     { consultantype: 'bluebase', consultantcode: 0 },
     { consultantype: 'Quadsel', consultantcode: 1 },
     { consultantype: 'Feat business solution', consultantcode: 2 },
 
   ];
-  referaltype: referaltypeselect[] = [
+  referaltype: Referaltypeselect[] = [
     { referaltypeadd: 'Internal', referaltypeaddcode: 0 },
     { referaltypeadd: 'External', referaltypeaddcode: 1 },
 
   ];
-  referal: referalselect[] = [
+  referal: Referalselect[] = [
     { referaltype: 'preethi', referaltypecode: 0 },
     { referaltype: 'gopinath', referaltypecode: 1 },
 
   ];
 
-  postapplied: postappliedforselect[] = [
+  postapplied: Postappliedforselect[] = [
     { postappliedfortype: 'senior developer ', postappliedfortypecode: 0 },
     { postappliedfortype: 'junior developer ', postappliedfortypecode: 1 },
 
   ];
-  employeement: employeementstatusselect[] = [
+  employeement: Employeementstatusselect[] = [
     { employeementstatustype: 'Fresher', employeementstatustypecode: 0 },
     { employeementstatustype: 'Experience', employeementstatustypecode: 1 },
 
   ];
-  certification: certificationselect[] = [
+  certification: Certificationselect[] = [
     { certificationtype: 'Yes', certificationtypecode: 0 },
     { certificationtype: 'No', certificationtypecode: 1 },
 
@@ -95,7 +94,7 @@ export class ResourceformComponent implements OnInit {
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private router: Router) {
   }
   ngOnInit(): void {
-    // this.resource = history.state[0];
+    
 
     if (this.save === "add") {
       this.savedata = true;
