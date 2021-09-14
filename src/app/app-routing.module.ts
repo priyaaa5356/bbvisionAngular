@@ -204,11 +204,11 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
   loadChildren: () => import('../app/Resource/jobdescriptionviewmaster/jobdescriptionviewmaster.module').then(m => m.JobdescriptionviewmasterModule)
 },
 {
-  path: 'jobdescriptionviewmasteradd/:id/:name/:name1/:location/:experience/:joining/:closing/:status/:save',
+  path: 'jobdescriptionviewmasteradd',
   loadChildren: () => import('../app/Resource/jobdescriptionviewmasteradd/jobdescriptionviewmasteradd.module').then(m => m.JobdescriptionviewmasteraddModule)
 },
 { path: 'resourcelist', loadChildren: () => import('./Resource/resourcelist/resourcelist.module').then(m => m.ResourcelistModule) },
-{ path: 'resourcelistadd', loadChildren: () => import('./Resource/resourceform/resourcelistadd/resourcelistadd.module').then(m => m.ResourcelistaddModule) }
+{ path: 'resourcelistadd', loadChildren: () => import('./Resource/resourcelistadd/resourcelistadd.module').then(m => m.ResourcelistaddModule) }
   ,
 ];
 

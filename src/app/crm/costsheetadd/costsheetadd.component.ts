@@ -58,7 +58,7 @@ export class CostsheetaddComponent implements OnInit {
   selection = new SelectionModel<Costsheetadd>(true, []);
   // displayedColumns: string[] = ['Code','Name','Price','Action']
   displayedColumns: string[] = ['check', 'phase', 'specification', 'manhours', 'amount', 'total']
-  displayedColumns1: string[] = ['totaladd']
+  // displayedColumns1: string[] = ['totaladd']
 
   costsheetadd: Costsheetadd[] = [
     { check: '', phase: 'good', specification: 'good', manhours: 'good', amount: 'good', total: '' }]

@@ -5,7 +5,9 @@ export class Resourcelist{
     designation:string="";
     contactno:string="";
     resourcetype:string="";
-    status:boolean=false;
+    shedulestatus:boolean=false;
+    status :string="";
+    
 }
 
 export class Resourceadd{
@@ -30,6 +32,8 @@ export class Resourceadd{
     certification:string="";
     interviewdate:string="";
     remarks:string="";
+    save:string="";
+  
 
 
 }

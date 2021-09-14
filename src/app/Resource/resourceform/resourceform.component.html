@@ -14,8 +14,8 @@
     <form [formGroup]="formgroup" class="example-form" fxLayout="column" fxFlex="50"
         style="-webkit-align-items: center;">
 
-        <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label style="font-weight: bold;color: #464545;">Source</mat-label>
+        <mat-form-field class="example-full-width" appearance="outline" display="table-row-group" >
+            <mat-label  style="margin-top: -10px;margin-left: -100px;">Source</mat-label>
             <mat-select #name  formControlName="source" (selectionChange)="sourcetypechange($event)">
                 <mat-option *ngFor="let sourcetypes of sourceselect" [value]="sourcetypes.sourcetypecode">
                     {{sourcetypes.sourcetype}}
@@ -107,12 +107,11 @@
             }
         </style>
 
-        <!-- <mat-form-field class="example-full-width" appearance="outline"> -->
         <mat-radio-group style="font-weight: bold;color: #464545;" formControlName="gender">Gender
             <mat-radio-button value="1">Male</mat-radio-button>
             <mat-radio-button value="2">Female</mat-radio-button>
         </mat-radio-group><br>
-        <!-- </mat-form-field> -->
+   
 
 
 

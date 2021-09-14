@@ -48,7 +48,7 @@ export class ResourceformComponent implements OnInit {
   savedata: any;
   fileToUpload: any;
 
-  consultants: Consultantselect[] = [];
+  // consultants: Consultantselect[] = [];
 
   @ViewChild('search') searchElement!: ElementRef;
   @ViewChild('name') someRef!: MatSelect;
@@ -144,7 +144,7 @@ export class ResourceformComponent implements OnInit {
     this.formgroup.controls.certification.setValue(0);
     this.certificationtypechangedefault(0);
 
- 
+   
     this.referaltypechangedefalt(0);
 
     setTimeout(() => {

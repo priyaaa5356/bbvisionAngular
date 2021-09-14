@@ -13,23 +13,37 @@ import { Resourceadd, Resourcelist } from '../model/resourcelist';
 export class ResourcelistComponent implements OnInit {
   @ViewChild('search') searchElement!: ElementRef;
   @ViewChild('name') nameElement!: ElementRef;
-  
-  displayedColumns: string[] = ['id','date','name','designation','contactno','resourcetype', 'status', 'tools'];
+
+  displayedColumns: string[] = ['id', 'date', 'name', 'designation', 'contactno', 'resourcetype', 'status', 'tools'];
   dataSource!: MatTableDataSource<Resourcelist>;
+
+  userroleview: Resourceadd[] = [];
+  userroleedit: Resourceadd[] = [];
   resourceadd: Resourceadd[] = [
-    { source:'', consultantname: '', date: '2021-08-06', postappliedfor: 'Guindy', firstname: 'az', lastname: 'raja', mobilenumber:'',whatsappnumber:'',
-  emailid:'',adhaarnumber:'',degree:'',college:'',yearsofpassout:'',percentage:'',employeementstatus:'',certification:'',expectedctc:'',currentctc:'',feedback:'',interviewdate:'',remarks:'' },
-    
+    {
+      source: '', consultantname: '', date: '2021-08-06', postappliedfor: 'Guindy', firstname: 'az', lastname: 'raja', mobilenumber: '', whatsappnumber: '',
+      emailid: '', adhaarnumber: '', degree: '', college: '', yearsofpassout: '', percentage: '', employeementstatus: '', certification: '', expectedctc: '', currentctc: '', feedback: '', interviewdate: '', remarks: ''
+   ,save:'shedule' },
+
   ];
+
+  res: Resourcelist = new Resourcelist();
   resourcelist: Resourcelist[] = [
-    { id: '1', date: '2021-08-06', name: 'junior developer ', designation: 'Guindy', contactno: '9841016631', resourcetype: 'Experience', status:false },
-    { id: '2', date: '2021-09-07', name: 'senior developer ', designation: 'Poonamalle', contactno: '9841011531', resourcetype: 'Fresher', status:true },
-    { id: '3', date: '2021-09-05', name: 'junior developer ', designation: 'Trichy', contactno: '9846916631', resourcetype: 'Experience', status:false },
-    { id: '4', date: '2021-11-01', name: 'senior developer ', designation: 'Salem', contactno: '9849311531', resourcetype: 'Fresher', status:true },
+    { id: '1', date: '2021-08-06', name: 'junior developer ', designation: 'Guindy', contactno: '9841016631', resourcetype: 'Experience', status: 'shedule', shedulestatus: false },
+    { id: '2', date: '2021-09-07', name: 'senior developer ', designation: 'Poonamalle', contactno: '9841011531', resourcetype: 'Fresher', status: 'Not schedule', shedulestatus: true },
+    { id: '3', date: '2021-09-05', name: 'junior developer ', designation: 'Trichy', contactno: '9846916631', resourcetype: 'Experience', status: 'shedule', shedulestatus: false },
+    { id: '4', date: '2021-11-01', name: 'senior developer ', designation: 'Salem', contactno: '9849311531', resourcetype: 'Fresher', status: 'Not schedule', shedulestatus: true },
   ];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(public router:Router) { }
+
+
+
+  
+
+
+
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -37,6 +51,8 @@ export class ResourcelistComponent implements OnInit {
     }, 0);
     this.dataSource = new MatTableDataSource(this.resourcelist);
   }
+
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -44,13 +60,18 @@ export class ResourcelistComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  add()
-  {
-
+  shedule(row:any) {
+ 
+    const t = this.resourceadd.filter((elem: any) => elem.id === row.id); 
+    
+    this.router.navigateByUrl("/resourcelistadd",{state:this.resourceadd} );
   }
-  navigate(row:any) {
+
+
+  navigate(row: any) {
     debugger;
-    const t = this.resourceadd.filter((elem: any)=> elem.id  === row.id);
+    const t = this.resourceadd.filter((elem: any) => elem.id === row.id); 
+    this.resourceadd[0].save = "update";
     this.router.navigateByUrl("/resourcelistadd", { state: this.resourceadd });
   }
 

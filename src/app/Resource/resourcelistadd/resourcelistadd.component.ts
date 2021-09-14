@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Resourceadd } from '../../model/resourcelist';
+import { Resourceadd } from '../model/resourcelist';
+import { Interview } from '../model/resourcemodel';
+
+
 
 @Component({
   selector: 'app-resourcelistadd',
@@ -10,14 +13,21 @@ import { Resourceadd } from '../../model/resourcelist';
 })
 export class ResourcelistaddComponent implements OnInit {
   formgroup!: FormGroup;
+
+  select: boolean = false;
+  unselect: boolean = false;
+
+  savedata: boolean = true;
+
+
   resourceadded: Resourceadd = new Resourceadd();
+  interview: Interview[] = [
+    { interviewdate: 'Not Selected', interviewdatecode: 0 },
+    { interviewdate: 'Shedule InterView', interviewdatecode: 1 }
+  ];
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private router: Router) {
- 
     console.log(this.router.getCurrentNavigation()?.extras.state);
-
   }
-
-
   ngOnInit(): void {
     this.resourceadded = history.state[0];
 
@@ -38,18 +48,33 @@ export class ResourcelistaddComponent implements OnInit {
       percentage: [this.resourceadded.percentage],
       employeestatus: [this.resourceadded.employeementstatus],
       expectedctc: [this.resourceadded.expectedctc],
-      certification:[this.resourceadded.certification],
+      certification: [this.resourceadded.certification],
       currentctc: [this.resourceadded.currentctc],
-      feedback:  [this.resourceadded.feedback],
-      interviewdate:  [this.resourceadded.interviewdate],
-      remarks:  [this.resourceadded.remarks],
-     
-
-
+      feedback: [this.resourceadded.feedback],
+      interviewdate: [this.resourceadded.interviewdate],
+      remarks: [this.resourceadded.remarks],
     });
+    this.formgroup.controls.feedback.setValue(0)
 
+    if (this.resourceadded.save === "shedule") {
+      this.savedata = false;
+    } else {
+      this.savedata = true;
+    }
+  }
+  interviewchange(event: any) {
+    if (event.value === 0) {
+      this.select = true;
+      this.unselect = false;
+    } else if (event.value === 1) {
+      this.select = false;
+      this.unselect = true;
+    }
+  }
 
+  update() {
 
   }
+
 
 }
