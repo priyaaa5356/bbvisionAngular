@@ -68,3 +68,8 @@ export class Certificationselect {
     certificationtype: string = "";
     certificationtypecode: number = 0;
 }
+
+export class Interview {
+    interviewdate: string = "";
+    interviewdatecode: number = 0;
+}

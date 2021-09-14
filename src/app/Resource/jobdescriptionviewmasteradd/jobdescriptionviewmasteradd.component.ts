@@ -1,109 +1,111 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { ActivatedRoute } from '@angular/router';
-import { JobdescriptionviewMaster } from '../model/jobdescriptionviewmaster';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Buttons, Clientselect, Jdselect, JobdescriptionviewMaster, Replacement } from '../model/jobdescriptionviewmaster';
 import { JobdescriptionviewmasterComponent } from '../jobdescriptionviewmaster/jobdescriptionviewmaster.component';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'LL',
+  },
+  display: {
+    dateInput: 'DD-MM-YYYY',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY',
+  },
 
+}
 @Component({
   selector: 'app-jobdescriptionviewmasteradd',
   templateUrl: './jobdescriptionviewmasteradd.component.html',
-  styleUrls: ['./jobdescriptionviewmasteradd.component.css']
+  styleUrls: ['./jobdescriptionviewmasteradd.component.css'],
+  providers: [
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+  ],
 })
 export class JobdescriptionviewmasteraddComponent implements OnInit {
   @ViewChild(JobdescriptionviewmasterComponent) childReference: any;
   formgroup!: FormGroup;
-  prefix: JobdescriptionviewMaster = new JobdescriptionviewMaster();
-  name: any;
-  name1: any;
-  location: any;
-  experience: any;
-  joining: any;
-  closing: any;
-  id: any;
-  statuses: any;
+  jobdescription: JobdescriptionviewMaster = new JobdescriptionviewMaster();
+
+  jdselect: Jdselect[] = [
+    { jdtype: 'choose jd title', jdtypecode: 0 },
+    { jdtype: 'angular developer', jdtypecode: 1 },
+    { jdtype: 'java developer', jdtypecode: 2 },
+
+  ];
+  clientselect: Clientselect[] = [
+    { clienttype: 'Uco Bank', clienttypecode: 0 },
+    { clienttype: 'Health ERP', clienttypecode: 1 },
+    { clienttype: 'DB world', clienttypecode: 2 },
+
+  ];
+  replacement: Replacement[] = [
+    { replacementtype: 'select', replacementtypecode: 0 },
+    { replacementtype: 'azhagu', replacementtypecode: 1 },
+    { replacementtype: 'anto', replacementtypecode: 2 },
+
+  ];
   @ViewChild('name') nameElement!: ElementRef;
   status: string = "InActive";
   statuscolor: string = "rgb(153 153 153)";
-  save: any;
-  savedata: boolean = true;
-  constructor(private route: ActivatedRoute, private fb: FormBuilder) { }
-  sub!: any;
+  savedata: boolean = false;
+  allocation: boolean = false;
+  close: boolean = false;
+
+  constructor(private route: ActivatedRoute, private fb: FormBuilder, private router: Router) {
+    console.log(this.router.getCurrentNavigation()?.extras.state);
+
+  }
+
   ngOnInit(): void {
-    debugger;
-    this.sub = this.route.paramMap.subscribe(params => {
-      this.id = params.get('id');
-      this.name = params.get('name');
-      this.name1 = params.get('name1');
-      this.location = params.get('location');
-      this.experience = params.get('experience');
-      this.joining = params.get('joining');
-      this.closing = params.get('closing');
-      this.statuses = params.get('status');
-      this.save = params.get('save');
-      console.log(params);
+    this.jobdescription = history.state[0];
+
+    this.formgroup = this.fb.group({
+      jdtitle: [this.jobdescription.jdtitle, [Validators.required]],
+      client: [this.jobdescription.client, [Validators.required]],
+      location: [this.jobdescription.location, [Validators.required]],
+      experience: [this.jobdescription.experience, [Validators.required]],
+      educationalqualification: [this.jobdescription.educationalqualification, [Validators.required]],
+      certification: [this.jobdescription.certification, [Validators.required]],
+      roles: [this.jobdescription.roles, [Validators.required]],
+      skillsrequired: [this.jobdescription.skillsrequired, [Validators.required]],
+      joining: [this.jobdescription.joining, [Validators.required]],
+      closing: [this.jobdescription.closing, [Validators.required]],
+      replacementfor: [this.jobdescription.replacementfor, [Validators.required]],
+      ctc: [this.jobdescription.ctc, [Validators.required]],
+      allocated: [this.jobdescription.allocate, [Validators.required]]
+
+
     });
     debugger;
-    this.prefix.id = this.id;
-    this.prefix.name = this.name;
-    this.prefix.name1 = this.name1;
-    this.prefix.location = this.location;
-    this.prefix.experience = this.experience;
-    this.prefix.joining = this.joining;
-    this.prefix.closing = this.closing;
-    this.prefix.status = this.statuses;
 
-    if (this.save === "add") {
+    if (this.jobdescription.status === "view") {
       this.savedata = true;
-    } else {
+      this.allocation = false;
+      this.close = false;
+    } else if (this.jobdescription.status === "allocate") {
       this.savedata = false;
-    }
-    this.formgroup = this.fb.group({
-      id: [this.prefix.id, [Validators.required]],
-      name: [this.prefix.name, [Validators.required]],
-      name1: [this.prefix.name1, [Validators.required]],
-      location: [this.prefix.location, [Validators.required]],
-      experience: [this.prefix.experience, [Validators.required]],
-      joining: [this.prefix.joining, [Validators.required]],
-      closing: [this.prefix.closing, [Validators.required]],
-      status: [this.prefix.status, [Validators.required]]
-    })
-    debugger;
-    console.log(this.formgroup.value)
-    this.ontoggledefault();
-    setTimeout(() => {
-      this.nameElement.nativeElement.focus();
-    }, 0);
-  }
-  ontoggledefault() {
-    debugger;
-    if (this.formgroup.value.status === "true") {
-      this.status = "Active";
-      this.statuscolor = "#70ce70";
-    } else if (this.formgroup.value.status === "false") {
-      this.formgroup.patchValue({
-        status: false
-      })
-      this.status = "InActive";
-      this.statuscolor = "rgb(153 153 153)";
-    }
-  }
-  onToggle(event: MatSlideToggleChange) {
-    debugger;
-    if (event.checked) {
-      this.status = "Active";
-      this.statuscolor = "#70ce70";
-    } else {
-      this.status = "InActive";
-      this.statuscolor = "rgb(153 153 153)";
+      this.allocation = true;
+      this.close = false;
+    } else if (this.jobdescription.status === "close") {
+      this.savedata = false;
+      this.allocation = false;
+      this.close = true;
     }
 
   }
-  saveform(){
+
+
+  saveform() {
 
   }
 
-  update(){
-    
+  update() {
+
   }
 }
