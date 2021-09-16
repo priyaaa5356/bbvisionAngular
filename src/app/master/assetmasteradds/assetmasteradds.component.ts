@@ -28,6 +28,7 @@ export class AssetmasteraddsComponent implements OnInit {
   constructor(private router: Router, private service: AssetmasterService, private commonservice: CommonService, private fb: FormBuilder,) { }
 
   ngOnInit(): void {
+
     this.asset = history.state[0];
     if (this.asset.save === "add") {
       this.savedata = true;

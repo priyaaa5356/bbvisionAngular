@@ -33,7 +33,7 @@ export class CallsmasteraddComponent implements OnInit {
     this.formgroup = this.fb.group({
       name: [this.callsmaster.name, [Validators.required]],
       status: [this.callsmaster.status, [Validators.required]]
-    })
+    });
     this.ontoggledefault();
     setTimeout(() => {
       this.nameElement.nativeElement.focus();

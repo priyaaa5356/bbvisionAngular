@@ -252,21 +252,30 @@ export class AppComponent implements OnInit {
         route: 'resourceform',
       },
       {
+        menuname: 'resourcelist',
+        displayName: 'Resource List ',
+        disabled: false,
+        iconName: 'input',
+        route: 'resourcelist',
+      },
+      {
+        menuname: 'jobdescriptionviewmaster',
+        displayName: 'Job description Form',
+        disabled: false,
+        iconName: 'input',
+        route: 'jobdescriptionviewmaster',
+      },
+      {
         menuname: 'jobdescriptionlistmaster',
         displayName: 'Jobdescription List',
         disabled: false,
         iconName: 'input',
         route: 'jobdescriptionlistmaster',
-      },
-      {
-        menuname: 'jobdescriptionviewmaster',
-        displayName: 'Jobdescription View',
-        disabled: false,
-        iconName: 'input',
-        route: 'jobdescriptionviewmaster',
       }
-    ]
-  
+
+
+      ]
+
     }
   ]
   login: LoginPojo = new LoginPojo();

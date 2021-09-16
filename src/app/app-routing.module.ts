@@ -166,7 +166,7 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
 },
 { path: 'jobdescription', loadChildren: () => import('../app/master/jobdescription/jobdescription.module').then(m => m.JobdescriptionModule) },
 {
-  path: 'jobdescriptionadd/:title/:status/:save',
+  path: 'jobdescriptionadd',
   loadChildren: () => import('../app/master/jobdescriptionadd/jobdescriptionadd.module').then(m => m.JobdescriptionaddModule)
 },
 { path: 'consultantmaster', loadChildren: () => import('../app/master/consultantmaster/consultantmaster.module').then(m => m.ConsultantmasterModule) },
@@ -176,7 +176,7 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
 },
 { path: 'userrolemaster', loadChildren: () => import('../app/master/userrolemaster/userrolemaster.module').then(m => m.UserrolemasterModule) },
 {
-  path: 'userrolemasteradd/:empname/:code/:rolename/:rolecode/:username/:password/:status/:save',
+  path: 'userrolemasteradd',
   loadChildren: () => import('../app/master/userrolemasteradd/userrolemasteradd.module').then(m => m.UserrolemasteraddModule)
 },
 {
@@ -204,9 +204,12 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
   loadChildren: () => import('../app/Resource/jobdescriptionviewmaster/jobdescriptionviewmaster.module').then(m => m.JobdescriptionviewmasterModule)
 },
 {
-  path: 'jobdescriptionviewmasteradd/:id/:name/:name1/:location/:experience/:roles/:skill/:certificate/:education/:joining/:closing/:status/:save',
+  path: 'jobdescriptionviewmasteradd',
+
   loadChildren: () => import('../app/Resource/jobdescriptionviewmasteradd/jobdescriptionviewmasteradd.module').then(m => m.JobdescriptionviewmasteraddModule)
-}
+},
+{ path: 'resourcelist', loadChildren: () => import('./Resource/resourcelist/resourcelist.module').then(m => m.ResourcelistModule) },
+{ path: 'resourcelistadd', loadChildren: () => import('./Resource/resourcelistadd/resourcelistadd.module').then(m => m.ResourcelistaddModule) }
   ,
 ];
 

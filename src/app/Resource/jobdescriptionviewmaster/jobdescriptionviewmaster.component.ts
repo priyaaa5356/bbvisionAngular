@@ -3,7 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { JobdescriptionviewMaster } from '../model/jobdescriptionviewmaster';
+import { Button } from 'selenium-webdriver';
+import { Buttons, JobdescriptionviewMaster } from '../model/jobdescriptionviewmaster';
 
 @Component({
   selector: 'app-jobdescriptionviewmaster',
@@ -13,14 +14,20 @@ import { JobdescriptionviewMaster } from '../model/jobdescriptionviewmaster';
 export class JobdescriptionviewmasterComponent implements OnInit {
   @ViewChild('search') searchElement!: ElementRef;
   @ViewChild('name') nameElement!: ElementRef;
-  displayedColumns: string[] = ['id', 'name', 'name1', 'location', 'experience', 'joining', 'closing', 'status', 'tools','tools1','tools2'];
+  displayedColumns: string[] = ['Job title', 'location', 'experience', 'joining', 'closing', 'tools'];
   dataSource!: MatTableDataSource<JobdescriptionviewMaster>;
-  jobs: JobdescriptionviewMaster[] = [
-    { id: '1', name: 'Trainee', name1: 'Krishna	', location: 'Chennai', experience: '2', roles: '2',skill: '2', certificate: 'Java', education: 'BCA', joining: '2021-09-01',  closing: '2021-09-01', status: true },
-    { id: '2', name: 'Trainee', name1: 'Krishna	', location: 'Chennai', experience: '3', roles: '2', skill: '2', certificate: 'Java', education: 'BCA', joining: '2021-09-01', closing: '2021-09-01', status: true },
-    { id: '3', name: 'Trainee', name1: 'Krishna	', location: 'Chennai', experience: '4', roles: '2',skill: '2',  certificate: 'Java', education: 'BCA', joining: '2021-09-01', closing: '2021-09-01', status: true },
+  jobdescriptionedit: JobdescriptionviewMaster[] = [];
 
+
+
+  jobdescription: JobdescriptionviewMaster[] = [
+    { id: 1, jdtitle: 'Trainee', client: 'raja	', location: 'Chennai', experience: '2', educationalqualification: '', certification: '', roles: '', skillsrequired: '', joining: '2000-09-01', closing: '2004-09-01', replacementfor: '', ctc: '', save: true, allocate: "", status: '' },
+    { id: 2, jdtitle: 'experience', client: 'anto	', location: 'madurai', experience: '1', educationalqualification: '', certification: '', roles: '', skillsrequired: '', joining: '2005-09-01', closing: '2012-09-01', replacementfor: '', ctc: '', save: false, allocate: "", status: '' },
+    { id: 3, jdtitle: 'Trainee', client: 'azhagu	', location: 'trichy', experience: '2', educationalqualification: '', certification: '', roles: '', skillsrequired: '', joining: '2015-09-01', closing: '2021-09-01', replacementfor: '', ctc: '', save: true, allocate: "", status: '' },
   ];
+  jobdescriptions: JobdescriptionviewMaster = new JobdescriptionviewMaster()
+
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   selectedRowIndex: any;
@@ -30,7 +37,9 @@ export class JobdescriptionviewmasterComponent implements OnInit {
     setTimeout(() => {
       this.searchElement.nativeElement.focus();
     }, 0);
-    this.dataSource = new MatTableDataSource(this.jobs);
+    this.dataSource = new MatTableDataSource(this.jobdescription);
+
+
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -41,21 +50,30 @@ export class JobdescriptionviewmasterComponent implements OnInit {
   }
 
   add() {
-    this.router.navigate(['/jobdescriptionviewmasteradd', "", "", "", "", "", "", "", "", "","","", false, "add"]);
+    // const t: JobdescriptionviewMaster = new JobdescriptionviewMaster();
+
+    this.router.navigateByUrl("/jobdescriptionviewmasteradd", { state: this.jobdescription });
+  }
+//c
+  view(row: any) {
+    debugger;
+    this.jobdescriptionedit = this.jobdescription.filter((elem: any) => elem.id === row.id);
+    this.jobdescriptionedit[0].status = "view";
+    this.router.navigateByUrl("/jobdescriptionviewmasteradd", { state: this.jobdescriptionedit });
+  }
+  allocation(row: any) {
+    debugger;
+    this.jobdescriptionedit = this.jobdescription.filter((elem: any) => elem.id === row.id);
+    this.jobdescriptionedit[0].status = "allocate";
+    this.router.navigateByUrl("/jobdescriptionviewmasteradd", { state: this.jobdescriptionedit });
+  }
+  close(row: any) {
+
+    this.jobdescriptionedit = this.jobdescription.filter((elem: any) => elem.id === row.id);
+    this.jobdescriptionedit[0].status = "close";
+    this.router.navigateByUrl("/jobdescriptionviewmasteradd", { state: this.jobdescriptionedit });
   }
 
-  selectedrow(row: any) {
-    this.router.navigate(['/jobdescriptionviewmasteradd', row.id, row.name, row.name1, row.location, row.experience, row.roles,row.skill,row.certificate, row.education, row.joining, row.closing, row.status, "update"]);
-  }
-  selectedrow1(row: any) {
-    this.router.navigate(['/jobdescriptionviewmasteradd', row.id, row.name, row.name1, row.location, row.experience, row.roles,row.skill,row.certificate, row.education, row.joining, row.closing, row.status, "view"]);
-  }
-  selectedrow2(row: any) {
-    this.router.navigate(['/jobdescriptionviewmasteradd', row.id, row.name, row.name1, row.location, row.experience, row.roles,row.skill,row.certificate, row.education, row.joining, row.closing, row.status, "allocate"]);
-  }
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-  }
+
 
 }

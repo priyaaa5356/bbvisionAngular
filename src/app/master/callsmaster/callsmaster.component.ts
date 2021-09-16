@@ -58,6 +58,4 @@ export class CallsmasterComponent implements OnInit {
     this.callsedit[0].save = "update"
     this.router.navigateByUrl('/callsmasteradd', { state: this.callsedit });
   }
-
-
 }
