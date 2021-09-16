@@ -205,6 +205,7 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
 },
 {
   path: 'jobdescriptionviewmasteradd',
+
   loadChildren: () => import('../app/Resource/jobdescriptionviewmasteradd/jobdescriptionviewmasteradd.module').then(m => m.JobdescriptionviewmasteraddModule)
 },
 { path: 'resourcelist', loadChildren: () => import('./Resource/resourcelist/resourcelist.module').then(m => m.ResourcelistModule) },
