@@ -166,7 +166,7 @@ const routes: Routes = [{ path: '', loadChildren: () => import('../app/login/log
 },
 { path: 'jobdescription', loadChildren: () => import('../app/master/jobdescription/jobdescription.module').then(m => m.JobdescriptionModule) },
 {
-  path: 'jobdescriptionadd/:title/:status/:save',
+  path: 'jobdescriptionadd',
   loadChildren: () => import('../app/master/jobdescriptionadd/jobdescriptionadd.module').then(m => m.JobdescriptionaddModule)
 },
 { path: 'consultantmaster', loadChildren: () => import('../app/master/consultantmaster/consultantmaster.module').then(m => m.ConsultantmasterModule) },
