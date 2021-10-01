@@ -5,7 +5,7 @@ import { CommonService } from './common/common.service';
 import { EventdialogComponent } from './eventdialog/eventdialog.component';
 import { Children, NavItem } from './common/navitem';
 import { LoginPojo } from './master/model/login';
-
+// preethi
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
